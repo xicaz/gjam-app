@@ -28,16 +28,16 @@
 
 ## Project Schedule
 
-| Day | Deliverable | Status |
-| --- | ----------- | ------ |
-|     |             |        |
-|     |             |        |
-|     |             |        |
-|     |             |        |
-|     |             |
-|     |             |        |
-|     |             |        |
-|     |             |        |
+| Day       | Deliverable                           | Status   |
+| --------- | ------------------------------------- | -------- |
+| Sep 9     | Wireframe                             | Complete |
+| Sep 10    | GitHub/Readme/Team Doc/Comp Hierarchy |          |
+| Sep 11-12 | Backend                               |          |
+| Sep 13    |                                       |          |
+| Sep 14    |                                       |
+| Sep 15    |                                       |          |
+| Sep 16    |                                       |          |
+| Sep 17    | Presentation                          |          |
 
 ## Timeframes
 
