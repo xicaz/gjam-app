@@ -1,7 +1,3 @@
-okamiffs
-mx32000
-xicaz jexica ayran
-
 # Project Overview
 
 ## GJAM Jam
