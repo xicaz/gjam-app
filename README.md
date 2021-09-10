@@ -6,13 +6,15 @@
 
 ## Wireframes
 
-![Wireframe for Site]//(gjam-team-library.png)
+![Wireframe for Site](gjam-team-library.png)
 
 ## Component Hierarchy
 
 ![Component Hierarchy]()
 
 ## API and Data Sample
+
+## Schema
 
 ### MVP/PostMVP
 
