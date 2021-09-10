@@ -11,6 +11,7 @@ const Jam = new Schema(
     creator: { type: String, required: true },
     price: { type: String, required: true },
     ingredients: [{ type: String, required: true }],
+    restricted: { type: Boolean, required: true },
   },
   { timestamps: true }
 )
