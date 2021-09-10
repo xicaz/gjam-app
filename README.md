@@ -6,7 +6,7 @@
 
 ## Wireframes
 
-![Wireframe for Site](gjam-team-library.png)
+![Wireframe for Site]()
 
 ## Component Hierarchy
 
@@ -15,6 +15,39 @@
 ## API and Data Sample
 
 ## Schema
+
+### Jam Schema
+
+```
+const Jam = new Schema(
+  {
+    name: { type: String, required: true },
+    sweetness: { type: String, required: true },
+    spiciness: { type: String, required: true },
+    imgURL: { type: String, required: true },
+    description: { type: String, required: true },
+    price: { type: String, required: true }
+    ingredients: [{ type: String  }, required: true]
+  },
+  { timestamps: true }
+)
+```
+
+tags: [{
+type: String
+}]
+
+### User Schema
+
+```
+const User = new Schema(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password_digest: { type: String, required: true, select: false },
+  },
+  { timestamps: true }
+```
 
 ### MVP/PostMVP
 
@@ -36,12 +69,6 @@
 | Sep 15 | Responsiveness and extra styling                                                                      |          |
 | Sep 16 | Polishing, Post MVP                                                                                   |          |
 | Sep 17 | Project Presentations                                                                                 |          |
-
-## Timeframes
-
-| Component                  | Priority | Estimated Time | Time Invested | Actual Time |
-| -------------------------- | :------: | :------------: | :-----------: | :---------: |
-| -------------------------- | :------: | :------------: | :-----------: | :---------: |
 
 ## Team Expectations
 
