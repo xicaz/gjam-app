@@ -45,7 +45,7 @@
 
 ## Team Expectations
 
-[Team expectations](#https://docs.google.com/document/d/14oVUIscUusLaHkfb1EMABAU5zR2UN-phRX395Y1lUj8/edit?usp=sharing)
+[Team expectations](https://docs.google.com/document/d/14oVUIscUusLaHkfb1EMABAU5zR2UN-phRX395Y1lUj8/edit?usp=sharing)
 
 ## SWOT Analysis
 
