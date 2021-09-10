@@ -6,7 +6,7 @@
 
 ## Wireframes
 
-![Wireframe for Site](https://www.figma.com/file/RpJb5JPqRSrHZgfHFav8Sr/GJAM-team-library?node-id=314%3A2)
+![Wireframe for Site](https://www.figma.com/file/RpJb5JPqRSrHZgfHFav8Sr/GJAM-team-library?node-id=321%3A32)
 
 ## Component Hierarchy
 
