@@ -6,7 +6,7 @@
 
 ## Wireframes
 
-![Wireframe for Site]()
+![Wireframe for Site](https://www.figma.com/file/RpJb5JPqRSrHZgfHFav8Sr/GJAM-team-library?node-id=314%3A2)
 
 ## Component Hierarchy
 
@@ -16,7 +16,7 @@
 
 ## Schema
 
-### Jam Schema
+#### Jam(Product) Schema
 
 ```
 const Jam = new Schema(
@@ -33,11 +33,7 @@ const Jam = new Schema(
 )
 ```
 
-tags: [{
-type: String
-}]
-
-### User Schema
+#### User Schema
 
 ```
 const User = new Schema(
@@ -68,14 +64,16 @@ const User = new Schema(
 - Listing Screen
 - Detail Screen
 - Have working generic controller actions for full-CRUD using Express, Mongoose, and MongoDB.
-- Be styled with CSS.
-- Use flexbox or/and CSS Grid.
-- Implement responsive design on 2 screen sizes
+- CSS styling.
+- Use flexbox and/or CSS Grid.
+- Implement responsive design on 2 screen sizes (desktop and mobile)
 - Deploy the fully functional front-end via Netlify.
 - Deploy the back-end via Heroku.
 - Deploy the MongoDB database on MongoDB Atlas.
 
 #### PostMVP
+
+- Implement a shopping cart so users can store items for one purchase
 
 ## Project Schedule
 
