@@ -10,7 +10,7 @@
 
 ## Component Hierarchy
 
-![Component Hierarchy]()
+![Component Hierarchy](gjam-component-hierarchy.png)
 
 ## API and Data Sample
 
