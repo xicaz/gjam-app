@@ -53,7 +53,27 @@ const User = new Schema(
 
 #### MVP
 
--
+- Team Expectations Google document.
+- Filled out README.md.
+- Component Hierarchy
+- Assign and discuss team roles as well as strengths and any areas where a teammate wishes to improve
+- Have a working, interactive React app.
+- Have at least 6 separate, rendered components stored within an organized folder/file structure.
+- Utilize functional and class React components appropriately.
+- Use only React for DOM Manipulation.
+- Consume data from your API, and render that data in your components.
+- Utilize React Router, for client-side routing.
+- Authentication!
+- Home Screen
+- Listing Screen
+- Detail Screen
+- Have working generic controller actions for full-CRUD using Express, Mongoose, and MongoDB.
+- Be styled with CSS.
+- Use flexbox or/and CSS Grid.
+- Implement responsive design on 2 screen sizes
+- Deploy the fully functional front-end via Netlify.
+- Deploy the back-end via Heroku.
+- Deploy the MongoDB database on MongoDB Atlas.
 
 #### PostMVP
 
@@ -73,13 +93,3 @@ const User = new Schema(
 ## Team Expectations
 
 [Team expectations](https://docs.google.com/document/d/14oVUIscUusLaHkfb1EMABAU5zR2UN-phRX395Y1lUj8/edit?usp=sharing)
-
-## SWOT Analysis
-
-### Strengths:
-
-### Weaknesses:
-
-### Opportunities:
-
-### Threats:
