@@ -6,11 +6,11 @@
 
 ## Wireframes
 
-![Wireframe for Site](gjam-whimsical.png)
+![Wireframe for Site](https://res.cloudinary.com/dyfvqwppd/image/upload/v1631298603/p3/gjam-whimsical_rrzxlc.png)
 
 ## Component Hierarchy
 
-![Component Hierarchy](gjam-component-hierarchy.png)
+![Component Hierarchy](https://res.cloudinary.com/dyfvqwppd/image/upload/v1631298578/p3/gjam-component-hierarchy_zkiwcv.png)
 
 ## API and Data Sample
 
