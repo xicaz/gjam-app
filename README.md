@@ -4,6 +4,8 @@
 
 ## Project Description
 
+This is a jam selling website that when users log in they can view, customize and edit jams. Jams are stored in a database so that users can see products created by other users. If a user is not signed in, they will not be able to edit or customize a jam.
+
 ## Wireframes
 
 ![Wireframe for Site](https://res.cloudinary.com/dyfvqwppd/image/upload/v1631298603/p3/gjam-whimsical_rrzxlc.png)
