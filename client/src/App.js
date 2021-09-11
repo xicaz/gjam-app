@@ -16,10 +16,9 @@ function App() {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/jams" component={Jams} />
+      <Route exact path="/jams/new" component={JamForm} />
       <Route exact path="/jams/:id" component={JamDetail} />
       <Route exact path="/jams/:id/edit" component={JamForm} />
-      {/* "/jams/new" routing to JamDetail instead of JamForm */}
-      <Route exact path="/jams/new" component={JamForm} />
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
       <Route path="/about" component={About} />
