@@ -17,3 +17,13 @@ export const getJam = async (req, res) => {
     res.status(500).send(error.message)
   }
 }
+
+export const createJam = async (req, res) => {
+  try {
+    const jam = new Jam(req.body)
+    await jam.save()
+    res.status(201).json(jam)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
