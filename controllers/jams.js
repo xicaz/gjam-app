@@ -37,3 +37,16 @@ export const updateJam = async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 }
+
+export const deleteJam = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Jam.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send("Jam deleted")
+    }
+    throw new Error("Jam not found")
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
