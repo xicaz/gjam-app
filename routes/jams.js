@@ -5,5 +5,6 @@ const router = Router()
 
 router.get("/jams", controllers.getJams)
 router.get("/jams/:id", controllers.getJam)
+router.post("/jams", controllers.createJam)
 
 export default router
