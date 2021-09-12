@@ -7,5 +7,6 @@ router.get("/jams", controllers.getJams)
 router.get("/jams/:id", controllers.getJam)
 router.post("/jams", controllers.createJam)
 router.put("/jams/:id", controllers.updateJam)
+router.delete("/jams/:id", controllers.deleteJam)
 
 export default router
