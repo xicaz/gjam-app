@@ -2,7 +2,7 @@ import db from "./db/connection.js"
 import express from "express"
 import logger from "morgan"
 import cors from "cors"
-import jamRoutes from "./routes/jams"
+import jamRoutes from "./routes/jams.js"
 
 const PORT = process.env.PORT || 3000
 

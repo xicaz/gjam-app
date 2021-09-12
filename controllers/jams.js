@@ -1,10 +1,10 @@
-import Jam from "../models/jam";
+import Jam from "../models/jam.js"
 
-export const getProjects = async (req, res) => {
+export const getJams = async (req, res) => {
   try {
-    const jams = await Jam.find();
-    res.json(jams);
+    const jams = await Jam.find()
+    res.json(jams)
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).send(error.message)
   }
-};
+}
