@@ -27,3 +27,13 @@ export const createJam = async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 }
+
+export const updateJam = async (req, res) => {
+  try {
+    const { id } = req.params
+    const jam = await Jam.findByIdAndUpdate(id, req.body, { new: true })
+    res.status(200).json(jam)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
