@@ -1,8 +1,8 @@
 import Layout from "../../components/Layout/Layout"
 
-export default function About() {
+export default function About(props) {
   return (
-    <Layout>
+    <Layout user={props.user}>
       <h1>About Screen</h1>
     </Layout>
   )
