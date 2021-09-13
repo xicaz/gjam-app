@@ -1,5 +1,5 @@
 import "./App.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Route, Switch } from "react-router-dom"
 import Home from "./screens/Home/Home"
 import About from "./screens/About/About"
@@ -8,6 +8,7 @@ import JamForm from "./screens/JamForm/JamForm"
 import Jams from "./screens/Jams/Jams"
 import SignIn from "./screens/SignIn/SignIn"
 import SignUp from "./screens/SignUp/SignUp"
+import { verifyUser } from "./services/users"
 
 function App() {
   const [user, setUser] = useState(null)
