@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Layout from "../../components/Layout/Layout"
+import { createJam } from "../../services/jams.js"
+import { Redirect } from "react-router";
 
 export default function JamForm(props) {
+  const [isCreated, setIsCreated] = useState(false)
   const [inputs, setInputs] = useState({
     name: "",
     creator: "",
@@ -33,9 +36,23 @@ export default function JamForm(props) {
     }
   }
 
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const jam = {
+      ...inputs,
+      restricted: false
+    }
+    const created = await createJam(jam)
+    setIsCreated({ created })
+  }
+
+  if (isCreated) {
+    return <Redirect to={`/jams`} />
+  }
+
   return (
     <Layout user={props.user}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input 
           type="text" 
           name="name" 
