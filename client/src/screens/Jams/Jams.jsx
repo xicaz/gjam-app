@@ -1,20 +1,20 @@
-import Layout from "../../components/Layout/Layout"
-import JamCard from "../../components/JamCard/JamCard"
-import "./Jams.css"
-// import JamModal from "../../components/JamModal/JamModal"
-import { useState, useEffect } from "react"
-import { getJams } from "../../services/jams"
+import Layout from "../../components/Layout/Layout";
+import JamCard from "../../components/JamCard/JamCard";
+import "./Jams.css";
+import { useState, useEffect } from "react";
+import { getJams } from "../../services/jams";
+import JamModal from "../../components/JamModal/JamModal";
 
 export default function Jams(props) {
-  const [jams, setJams] = useState([])
+  const [jams, setJams] = useState([]);
 
   useEffect(() => {
     const fetchJams = async () => {
-      const allJams = await getJams()
-      setJams(allJams)
-    }
-    fetchJams()
-  }, [])
+      const allJams = await getJams();
+      setJams(allJams);
+    };
+    fetchJams();
+  }, []);
   return (
     <Layout user={props.user}>
       <div className="jams-container">
@@ -26,9 +26,9 @@ export default function Jams(props) {
               jam={jam}
               key={index}
             />
-          )
+          );
         })}
       </div>
     </Layout>
-  )
+  );
 }
