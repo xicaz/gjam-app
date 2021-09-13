@@ -16,7 +16,7 @@ export default function JamForm(props) {
     ingredients: ["", "", "", ""]
   })
 
-  const ingredients = ["Strawberry", "Raspberry", "Peach"]
+  const ingredients = ["Strawberry", "Raspberry", "Peach", "Blueberry"]
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -59,6 +59,7 @@ export default function JamForm(props) {
           id="name" 
           placeholder="Product Name"
           onChange={handleChange}
+          value={inputs.name}
         />
         <input 
           type="text" 
@@ -66,13 +67,15 @@ export default function JamForm(props) {
           id="creator" 
           placeholder="Creator"
           onChange={handleChange}
+          value={inputs.creator}
         />
         <input 
           type="text" 
           name="price" 
           id="price" 
           placeholder="Price"
-          onChange={handleChange} 
+          onChange={handleChange}
+          value={inputs.price} 
         />
         <input
           type="text"
@@ -80,6 +83,7 @@ export default function JamForm(props) {
           id="description"
           placeholder="description..."
           onChange={handleChange}
+          value={inputs.description}
         />
         <input
           type="text"
@@ -87,9 +91,11 @@ export default function JamForm(props) {
           id="imgURL"
           placeholder="Image URL"
           onChange={handleChange}
+          value={inputs.imgURL}
         />
         <label htmlFor="spiciness">Spice level</label>
-        <select name="spiciness" id="spiciness" onChange={handleChange}>
+        <select name="spiciness" id="spiciness" onChange={handleChange} value={inputs.spiciness}>
+          <option value="" disabled hidden></option>
           <option value="0%">0%</option>
           <option value="25%">25%</option>
           <option value="50%">50%</option>
@@ -97,7 +103,8 @@ export default function JamForm(props) {
           <option value="100%">100%</option>
         </select>
         <label htmlFor="sweetness">Sweetness</label>
-        <select name="sweetness" id="sweetness" onChange={handleChange}>
+        <select name="sweetness" id="sweetness" onChange={handleChange} value={inputs.sweetness}>
+          <option value="" disabled hidden></option>
           <option value="0%">0%</option>
           <option value="25%">25%</option>
           <option value="50%">50%</option>
@@ -105,7 +112,7 @@ export default function JamForm(props) {
           <option value="100%">100%</option>
         </select>
         <label htmlFor="ingredients1">Ingredients</label>
-        <select name="ingredients1" id="ingredients1" onChange={handleChange} defaultValue="">
+        <select name="ingredients1" id="ingredients1" onChange={handleChange} value={inputs.ingredients[0]}>
           <option value="" disabled hidden>
             Ingredients
           </option>
@@ -113,7 +120,7 @@ export default function JamForm(props) {
             <option value={ing} key={index}>{ing}</option>
           ))}
         </select>
-        <select name="ingredients2" id="ingredients2" onChange={handleChange} defaultValue="">
+        <select name="ingredients2" id="ingredients2" onChange={handleChange} value={inputs.ingredients[1]}>
           <option value="" disabled hidden>
             Ingredients
           </option>
@@ -121,7 +128,7 @@ export default function JamForm(props) {
             <option value={ing} key={index}>{ing}</option>
           ))}
         </select>
-        <select name="ingredients3" id="ingredients3" onChange={handleChange} defaultValue="">
+        <select name="ingredients3" id="ingredients3" onChange={handleChange} value={inputs.ingredients[2]}>
           <option value="" disabled hidden>
             Ingredients
           </option>
@@ -129,7 +136,7 @@ export default function JamForm(props) {
             <option value={ing} key={index}>{ing}</option>
           ))}
         </select>
-        <select name="ingredients4" id="ingredients4" onChange={handleChange} defaultValue="">
+        <select name="ingredients4" id="ingredients4" onChange={handleChange} value={inputs.ingredients[3]}>
           <option value="" disabled hidden>
             Ingredients
           </option>
