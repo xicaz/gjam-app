@@ -1,5 +1,5 @@
-import "./JamCard.css";
-import { Link } from "react-router-dom";
+import "./JamCard.css"
+import { Link } from "react-router-dom"
 
 export default function JamCard(props) {
   return (
@@ -9,7 +9,7 @@ export default function JamCard(props) {
           <img className="jam-card-image" src={props.imgURL} alt={props.name} />
         </Link>
         <h3>{props.name}</h3>
-        <p>${props.price}</p>
+        <p>{props.price}</p>
       </div>
 
       {/* inactive */}
@@ -26,7 +26,7 @@ export default function JamCard(props) {
 
       {/* </div> */}
     </>
-  );
+  )
 }
 
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
