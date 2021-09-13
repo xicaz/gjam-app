@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 export default function Nav(props) {
   return (
@@ -14,14 +14,11 @@ export default function Nav(props) {
           <NavLink className="link" to="/about">
             about
           </NavLink>
-          {/* <NavLink className="link" to="/jams/:id/edit">
-            cart
-          </NavLink> */}
           <NavLink className="link" to="/signin">
             sign in
           </NavLink>
         </div>
       </div>
     </nav>
-  )
+  );
 }
