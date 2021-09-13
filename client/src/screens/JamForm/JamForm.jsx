@@ -1,8 +1,8 @@
 import Layout from "../../components/Layout/Layout"
 
-export default function JamForm() {
+export default function JamForm(props) {
   return (
-    <Layout>
+    <Layout user={props.user}>
       <h1>JamForm Screen</h1>
     </Layout>
   )

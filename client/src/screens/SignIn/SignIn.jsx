@@ -41,7 +41,7 @@ export default function SignIn(props) {
   }
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <form onSubmit={onSignIn}>
         <input type="text" name="email" id="email" placeholder="email" value={form.email} onChange={handleChange} />
         <input type="password" name="password" id="password" placeholder="password" value={form.password} onChange={handleChange} />
