@@ -29,14 +29,4 @@ export default function JamCard(props) {
   );
 }
 
-// name: { type: String, required: true },
-// sweetness: { type: String, required: true },
-// spiciness: { type: String, required: true },
-// imgURL: { type: String, required: true },
-// description: { type: String, required: true },
-// creator: { type: String, required: true },
-// price: { type: String, required: true },
-// ingredients: [{ type: String, required: true }],
-// restricted: { type: Boolean, required: true },
-
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
