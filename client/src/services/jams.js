@@ -8,3 +8,12 @@ export const getJams = async () => {
     throw error
   }
 }
+
+export const createJam = async jam => {
+  try {
+    const response = await api.post('/jams', jam)
+    return response.data
+  } catch (error) {
+    throw error
+  } 
+}
