@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./screens/Home/Home";
 import About from "./screens/About/About";
 import JamDetail from "./screens/JamDetail/JamDetail";
@@ -31,13 +31,13 @@ function App() {
         <Jams user={user} />
       </Route>
       <Route exact path="/jams/new">
-        <JamForm user={user} />
+        {user ? <JamForm user={user} /> : <Redirect to="/signup" />}
       </Route>
       <Route exact path="/jams/:id">
         <JamDetail user={user} />
       </Route>
       <Route exact path="/jams/:id/edit">
-        <JamForm user={user} />
+        {user ? <JamForm user={user} /> : <Redirect to="/signup" />}
       </Route>
       <Route path="/signup">
         <SignUp user={user} setUser={setUser} />

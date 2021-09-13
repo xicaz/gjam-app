@@ -5,18 +5,17 @@ export default function Nav(props) {
     <nav>
       <div className="nav">
         <div className="links">
-          <NavLink className="link" to="/jams">
-            jams
-          </NavLink>
-          <NavLink className="link" to="/jams/new">
-            create
-          </NavLink>
-          <NavLink className="link" to="/about">
-            about
-          </NavLink>
-          <NavLink className="link" to="/signin">
-            sign in
-          </NavLink>
+          <NavLink className="link" to="/jams">jams</NavLink>
+          <NavLink className="link" to="/jams/new">create</NavLink>
+          <NavLink className="link" to="/about">about</NavLink>
+          <NavLink className="link" to="/jams/613bc28bb4b9ad883fd9ca57/edit">lmao</NavLink>
+          {props.user 
+            ? <>
+                <p>{props.user.name}</p>
+                <NavLink className="link" to="/signout">sign out</NavLink>
+              </>
+            : <NavLink className="link" to="/signin">sign in</NavLink>
+          }
         </div>
       </div>
     </nav>

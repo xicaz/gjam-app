@@ -1,8 +1,8 @@
 import Layout from "../../components/Layout/Layout"
 
-export default function JamDetail() {
+export default function JamDetail(props) {
   return (
-    <Layout>
+    <Layout user={props.user}>
       <h1>JamDetail Screen</h1>
     </Layout>
   )

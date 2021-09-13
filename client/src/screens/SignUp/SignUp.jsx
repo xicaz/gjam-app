@@ -43,7 +43,7 @@ export default function SignUp(props) {
   };
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <form onSubmit={onSignUp}>
         <input
           onChange={handleChange}
