@@ -15,9 +15,14 @@ export default function SignIn() {
     })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+  }
+
   return (
     <Layout>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" name="email" id="email" placeholder="email" value={form.email} onChange={handleChange} />
         <input type="password" name="password" id="password" placeholder="password" value={form.password} onChange={handleChange} />
         <button type="submit">Sign in</button>
