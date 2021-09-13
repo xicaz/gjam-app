@@ -23,8 +23,7 @@ export default function Jams(props) {
             <JamCard
               //imgURL={jam.imgURL}
               imgURL={"https://i.imgur.com/m2o9NB9.png"}
-              name={jam.name}
-              price={jam.price}
+              jam={jam}
               key={index}
             />
           )
