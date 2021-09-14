@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import Layout from "../../components/Layout/Layout";
 import { createJam, getJam, updateJam } from "../../services/jams.js";
-import { Redirect } from "react-router";
-import { useParams } from "react-router-dom";
+import { Redirect, useHistory } from "react-router";
+import { useParams} from "react-router-dom";
 
 export default function JamForm(props) {
   const [jam, setJam] = useState(null);
-  const [isCreated, setIsCreated] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
   const [inputs, setInputs] = useState({
     name: "",
     creator: "",
@@ -19,30 +19,24 @@ export default function JamForm(props) {
   });
 
 
-  const params = useParams();
+  let { id } = useParams()
+  let history = useHistory()
 
   const ingredients = ["Strawberry", "Raspberry", "Peach", "Blueberry"];
 
   useEffect(() => {
-    if (params.id) {
+    if (id) {
       const fetchJam = async () => {
-        const jam = await getJam(params.id)
+        const jam = await getJam(id)
+        console.log(jam)
         setJam(jam)
-        const { name, creator, price, description, imgURL, spiciness, sweetness, ingredients } = jam
-        setInputs({ 
-          name, 
-          creator, 
-          price, 
-          description, 
-          imgURL, 
-          spiciness, 
-          sweetness, 
-          ingredients
-        })
+        if(jam) {
+          setInputs(jam)
+        }
       }
       fetchJam()
     }
-  }, [jam]);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,16 +63,21 @@ export default function JamForm(props) {
       restricted: false,
     };
     if (jam) {
-      const updated = await updateJam(newJam);
+      const updated = await updateJam(id, newJam);
+      if(updated) {
+        history.push(`/jams/${id}`)
+      }
     } else {
       const created = await createJam(newJam);
-      setIsCreated({ created });
+      // console.log(created)
+      if (created) {
+        console.log(created._id)
+        history.push(`/jams/${created._id}`)
+      }
+      console.log(id)
+      setIsCompleted({ created });
     }
   };
-
-  if (isCreated) {
-    return <Redirect to={`/jams/${jam._id}`} />;
-  }
 
   return (
     <Layout user={props.user}>
@@ -145,8 +144,6 @@ export default function JamForm(props) {
           value={inputs.sweetness}
         >
           <option value="" disabled hidden></option>
-          <option value="0%">0%</option>
-          <option value="25%">25%</option>
           <option value="50%">50%</option>
           <option value="75%">75%</option>
           <option value="100%">100%</option>
