@@ -1,19 +1,36 @@
-import "./JamCard.css";
-import { Link } from "react-router-dom";
-import JamModal from "../JamModal/JamModal";
+import "./JamCard.css"
+import JamModal from "../JamModal/JamModal"
+import { useState } from "react"
 
 export default function JamCard(props) {
-  const { name, price, _id } = props.jam;
+  const { name, price } = props.jam
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
   return (
     <>
       <div className="jam-card">
-        <JamModal jam={props.jam} />
-        <Link to={`/jams/${_id}`}>
-          <img className="jam-card-image" src={props.imgURL} alt={name} />
-        </Link>
+        <JamModal
+          jam={props.jam}
+          open={open}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+        />
+        <img
+          onClick={handleOpen}
+          className="jam-card-image"
+          src={props.imgURL}
+          alt={name}
+        />
         <h3>{name}</h3>
         <p>{price}</p>
       </div>
     </>
-  );
+  )
 }
