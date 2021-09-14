@@ -1,8 +1,8 @@
 import { useEffect, useState} from "react";
 import Layout from "../../components/Layout/Layout";
 import { createJam, getJam, updateJam } from "../../services/jams.js";
-import { Redirect, useHistory } from "react-router";
-import { useParams} from "react-router-dom";
+import { useHistory } from "react-router";
+import { useParams, Link } from "react-router-dom";
 
 export default function JamForm(props) {
   const [jam, setJam] = useState(null);
@@ -23,6 +23,7 @@ export default function JamForm(props) {
   let history = useHistory()
 
   const ingredients = ["Strawberry", "Raspberry", "Peach", "Blueberry"];
+  const defaultPicture = "https://i.imgur.com/48ffGSy.png";
 
   useEffect(() => {
     if (id) {
@@ -61,6 +62,7 @@ export default function JamForm(props) {
     const newJam = {
       ...inputs,
       restricted: false,
+      imgURL: inputs.imgURL || defaultPicture
     };
     if (jam) {
       const updated = await updateJam(id, newJam);
@@ -80,6 +82,7 @@ export default function JamForm(props) {
     <Layout user={props.user}>
       <form onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           name="name"
           id="name"
@@ -88,6 +91,7 @@ export default function JamForm(props) {
           value={inputs.name}
         />
         <input
+          required
           type="text"
           name="creator"
           id="creator"
@@ -96,6 +100,7 @@ export default function JamForm(props) {
           value={inputs.creator}
         />
         <input
+          required
           type="text"
           name="price"
           id="price"
@@ -104,6 +109,7 @@ export default function JamForm(props) {
           value={inputs.price}
         />
         <input
+          required
           type="text"
           name="description"
           id="description"
@@ -121,6 +127,7 @@ export default function JamForm(props) {
         />
         <label htmlFor="spiciness">Spice level</label>
         <select
+          required
           name="spiciness"
           id="spiciness"
           onChange={handleChange}
@@ -135,6 +142,7 @@ export default function JamForm(props) {
         </select>
         <label htmlFor="sweetness">Sweetness</label>
         <select
+          required
           name="sweetness"
           id="sweetness"
           onChange={handleChange}
@@ -147,6 +155,7 @@ export default function JamForm(props) {
         </select>
         <label htmlFor="ingredients1">Ingredients</label>
         <select
+          required
           name="ingredients1"
           id="ingredients1"
           onChange={handleChange}
@@ -162,6 +171,7 @@ export default function JamForm(props) {
           ))}
         </select>
         <select
+          required
           name="ingredients2"
           id="ingredients2"
           onChange={handleChange}
@@ -206,8 +216,9 @@ export default function JamForm(props) {
             </option>
           ))}
         </select>
-        <button type="submit">Create</button>
+        <button type="submit">{jam ? "Update" : "Create"}</button>
       </form>
+      <Link to={'/jams'}><button>Continue Shopping</button></Link>
     </Layout>
   );
 }
