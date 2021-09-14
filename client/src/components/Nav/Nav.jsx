@@ -8,7 +8,6 @@ export default function Nav(props) {
           <NavLink className="link" to="/jams">jams</NavLink>
           <NavLink className="link" to="/jams/new">create</NavLink>
           <NavLink className="link" to="/about">about</NavLink>
-          <NavLink className="link" to="/jams/613bc28bb4b9ad883fd9ca57/edit">lmao</NavLink>
           {props.user 
             ? <>
                 <p>{props.user.name}</p>
