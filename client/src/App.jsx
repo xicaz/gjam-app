@@ -37,7 +37,7 @@ function App() {
         <JamDetail user={user} />
       </Route>
       <Route exact path="/jams/:id/edit">
-        {user ? <JamForm user={user} /> : <Redirect to="/signup" />}
+        {user ? <JamForm user={user} /> : null}
       </Route>
       <Route path="/signup">
         <SignUp user={user} setUser={setUser} />
