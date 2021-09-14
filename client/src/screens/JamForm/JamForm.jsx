@@ -1,32 +1,46 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
-import { createJam, updateJam } from "../../services/jams.js";
+import { createJam, getJam, updateJam } from "../../services/jams.js";
 import { Redirect } from "react-router";
+import { useParams } from "react-router-dom";
 
 export default function JamForm(props) {
-  const jam = props.jam;
-
+  const [jam, setJam] = useState(null);
   const [isCreated, setIsCreated] = useState(false);
-  const [inputs, setInputs] = useState(
-    jam
-      ? jam
-      : {
-          name: "",
-          creator: "",
-          price: "",
-          description: "",
-          imgURL: "",
-          spiciness: "",
-          sweetness: "",
-          ingredients: ["", "", "", ""],
-        }
-  );
+  const [inputs, setInputs] = useState({
+    name: "",
+    creator: "",
+    price: "",
+    description: "",
+    imgURL: "",
+    spiciness: "",
+    sweetness: "",
+    ingredients: ["", "", "", ""],
+  });
+
+
+  const params = useParams();
 
   const ingredients = ["Strawberry", "Raspberry", "Peach", "Blueberry"];
 
   useEffect(() => {
-    if (jam) {
-      setInputs(jam);
+    if (params.id) {
+      const fetchJam = async () => {
+        const jam = await getJam(params.id)
+        setJam(jam)
+        const { name, creator, price, description, imgURL, spiciness, sweetness, ingredients } = jam
+        setInputs({ 
+          name, 
+          creator, 
+          price, 
+          description, 
+          imgURL, 
+          spiciness, 
+          sweetness, 
+          ingredients
+        })
+      }
+      fetchJam()
     }
   }, [jam]);
 
