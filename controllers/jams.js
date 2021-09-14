@@ -50,3 +50,12 @@ export const deleteJam = async (req, res) => {
     res.status(500).send(error.message)
   }
 }
+
+export const getFeaturedJams = async (req, res) => {
+  try {
+    const featuredJams = await Jam.find({ restricted: true})
+    res.json(featuredJams)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
