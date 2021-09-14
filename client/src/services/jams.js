@@ -11,12 +11,12 @@ export const getJams = async () => {
 
 export const getJam = async (id) => {
   try {
-    const response = await api.get(`/jams/${id}`)
-    return response.data
+    const response = await api.get(`/jams/${id}`);
+    return response.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
 
 export const createJam = async (jam) => {
   try {
@@ -35,6 +35,3 @@ export const updateJam = async (id, jam) => {
     throw error;
   }
 };
-
-
-

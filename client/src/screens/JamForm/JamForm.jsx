@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
-import { createJam } from "../../services/jams.js";
+import { createJam, updateJam } from "../../services/jams.js";
 import { Redirect } from "react-router";
 
 export default function JamForm(props) {
