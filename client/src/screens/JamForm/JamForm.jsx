@@ -69,12 +69,9 @@ export default function JamForm(props) {
       }
     } else {
       const created = await createJam(newJam);
-      // console.log(created)
       if (created) {
-        console.log(created._id)
         history.push(`/jams/${created._id}`)
       }
-      console.log(id)
       setIsCompleted({ created });
     }
   };
