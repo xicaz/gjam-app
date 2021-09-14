@@ -36,7 +36,7 @@ export default function JamDetail(props) {
         </div>
         <div className="jam-info">
           <h1>{jam.name}</h1>
-          <h1>{jam.price}</h1>
+          <h1>${jam.price}</h1>
           <p>{jam.ingredients.join(" ")}</p>
           <p>{jam.spiciness}</p>
           <p>{jam.sweetness}</p>
