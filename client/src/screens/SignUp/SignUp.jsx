@@ -1,8 +1,8 @@
-import Layout from "../../components/Layout/Layout";
-import { useState } from "react";
+import Layout from "../../components/Layout/Layout"
+import { useState } from "react"
 // import './SignUp.css'
-import { signUp } from "../../services/users";
-import { useHistory } from "react-router-dom";
+import { signUp } from "../../services/users"
+import { useHistory, Link } from "react-router-dom"
 
 export default function SignUp(props) {
   const [form, setForm] = useState({
@@ -12,25 +12,34 @@ export default function SignUp(props) {
     passwordConfirmation: "",
     isError: false,
     errorMsg: "",
-  });
+  })
 
-  const history = useHistory();
+  const history = useHistory()
 
   const handleChange = (e) =>
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-    });
+    })
 
   const onSignUp = async (e) => {
-    e.preventDefault();
-    const { setUser } = props;
+    e.preventDefault()
+    const { setUser } = props
     try {
-      const user = await signUp(form);
-      setUser(user);
-      history.push("/");
+      if (form.password !== form.passwordConfirmation) {
+        setForm({
+          ...form,
+          passwordConfirmation: "",
+          isError: true,
+          errorMsg: "Passwords do not match",
+        })
+        return
+      }
+      const user = await signUp(form)
+      setUser(user)
+      history.push("/")
     } catch (error) {
-      console.error(error);
+      console.error(error)
       setForm({
         name: "",
         email: "",
@@ -38,9 +47,9 @@ export default function SignUp(props) {
         passwordConfirmation: "",
         isError: true,
         errorMsg: "Sign Up Details Invalid",
-      });
+      })
     }
-  };
+  }
 
   return (
     <Layout user={props.user}>
@@ -84,6 +93,7 @@ export default function SignUp(props) {
         <button type="submit">Sign up</button>
         {form.isError ? <p>{form.errorMsg}</p> : null}
       </form>
+      <Link to="/signin">Already have an account? Sign in!</Link>
     </Layout>
-  );
+  )
 }
