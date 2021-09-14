@@ -35,17 +35,3 @@ export const updateJam = async (id, jam) => {
     throw error;
   }
 };
-
-<<<<<<< HEAD
-export const createJam = async (jam) => {
-  try {
-    const response = await api.post("/jams", jam);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-=======
-
-
->>>>>>> 4e0e1357dfa711b6e5ae2cdf5748020a654e665e
