@@ -44,7 +44,7 @@ export default function JamDetail(props) {
           <p>{jam.description}</p>
           <p className="creator-tag">Creator: {jam.creator}</p>
           <div className="buttons">
-            {props.user ? (
+            {props.user && !jam.restricted ? (
               <>
                 <Link to={`/jams/${jam._id}/edit`}>
                   <button className="edit-button">Edit</button>

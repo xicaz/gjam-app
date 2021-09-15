@@ -23,7 +23,8 @@ export default function JamForm(props) {
   let { id } = useParams()
   let history = useHistory()
 
-  const ingredients = ["Strawberry", "Raspberry", "Peach", "Blueberry"];
+  const ingredients = ["Banana", "Blueberry", "Grape", "Lemon", "Lime", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Pluot", "Raspberry", "Strawberry", "Tangerine"];
+
   const defaultPicture = "https://i.imgur.com/48ffGSy.png";
 
   useEffect(() => {
