@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getFeaturedJams } from "../../services/jams";
 import JamCard from "../JamCard/JamCard";
+import "./FeaturedJams.css";
 
 export default function FeaturedJams(props) {
   const [featuredJams, setFeaturedJams] = useState([]);
