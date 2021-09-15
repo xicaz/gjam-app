@@ -46,7 +46,7 @@ export default function JamDetail(props) {
       </div>
 
       <div className="buttons">
-        {props.user ? (
+        {props.user && !jam.restricted ? (
           <>
             <Link to={`/jams/${jam._id}/edit`}>
               <button>Edit</button>
