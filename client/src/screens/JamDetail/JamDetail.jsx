@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout"
 import { useParams, Link } from "react-router-dom"
 import { getJam, deleteJam } from "../../services/jams"
 import { useHistory } from "react-router"
+import "./JamDetail.css"
 
 export default function JamDetail(props) {
   const [isLoaded, setLoaded] = useState(false)
@@ -37,24 +38,23 @@ export default function JamDetail(props) {
         <div className="jam-info">
           <h1>{jam.name}</h1>
           <h1>${jam.price}</h1>
-          <p>{jam.ingredients.join(" ")}</p>
-          <p>{jam.spiciness}</p>
-          <p>{jam.sweetness}</p>
+          <p>Ingredients: {jam.ingredients.join(" ")}</p>
+          <p>Spiciness: {jam.spiciness}</p>
+          <p>Sweetness: {jam.sweetness}</p>
           <p>{jam.description}</p>
-          <p>{jam.creator}</p>
+          <p className="creator-tag">Creator: {jam.creator}</p>
+          <div className="buttons">
+            {props.user ? (
+              <>
+                <Link to={`/jams/${jam._id}/edit`}>
+                  <button className="edit-button">Edit</button>
+                </Link>
+                <button onClick={deleteAndPush}>Delete</button>
+              </>
+            ) : null}
+            <button>Add to Cart</button>
+          </div>
         </div>
-      </div>
-
-      <div className="buttons">
-        {props.user ? (
-          <>
-            <Link to={`/jams/${jam._id}/edit`}>
-              <button>Edit</button>
-            </Link>
-            <button onClick={deleteAndPush}>Delete</button>
-          </>
-        ) : null}
-        <button>Add to Cart</button>
       </div>
     </Layout>
   )
