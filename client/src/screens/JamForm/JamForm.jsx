@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import { createJam, getJam, updateJam } from "../../services/jams.js";
 import { useHistory } from "react-router";
 import { useParams, Link } from "react-router-dom";
+import "./JamForm.css";
 
 export default function JamForm(props) {
   const [jam, setJam] = useState(null);
@@ -22,7 +23,8 @@ export default function JamForm(props) {
   let { id } = useParams()
   let history = useHistory()
 
-  const ingredients = ["Strawberry", "Raspberry", "Peach", "Blueberry"];
+  const ingredients = ["Banana", "Blueberry", "Grape", "Lemon", "Lime", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Pluot", "Raspberry", "Strawberry", "Tangerine"];
+
   const defaultPicture = "https://i.imgur.com/48ffGSy.png";
 
   useEffect(() => {
@@ -101,7 +103,7 @@ export default function JamForm(props) {
         />
         <input
           required
-          type="text"
+          type="number"
           name="price"
           id="price"
           placeholder="Price"

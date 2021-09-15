@@ -22,14 +22,18 @@ export default function JamCard(props) {
           handleOpen={handleOpen}
           handleClose={handleClose}
         />
-        <img
-          onClick={handleOpen}
-          className="jam-card-image"
-          src={props.imgURL}
-          alt={name}
-        />
-        <h3>{name}</h3>
-        <p>{price}</p>
+        <div className="card-image">
+          <img
+            onClick={handleOpen}
+            className="jam-card-image"
+            src={props.jam.imgURL}
+            alt={name}
+          />
+        </div>
+        <div className="jam-info">
+          <h3>{name}</h3>
+          <p>${price}</p>
+        </div>
       </div>
     </>
   )
