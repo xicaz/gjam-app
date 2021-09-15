@@ -1,3 +1,74 @@
-img {
-  width: 10%;
+.jams-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.jam-card-image {
+  width: 90%;
+}
+
+.jam-info {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-self: self-end;
+  /* margin-top: -15px; need better way to move h3 and p tag up. */
+}
+
+.jam-card {
+  display: flex;
+  width: 30%;
+  /* border: 2px solid black; */
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+}
+
+.jam-info h3 {
+  margin: 6px 0px;
+}
+
+.jam-info p {
+  margin-top: 2px;
+}
+
+@media only screen and (max-width: 800px) {
+  .jam-card {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .jams-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .jam-card {
+    width: 100%;
+    margin: 4px 0px;
+  }
 }
