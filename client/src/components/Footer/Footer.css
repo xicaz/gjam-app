@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #1c0761;
+  color: white;
+  padding: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
