@@ -1,0 +1,33 @@
+.jam-detail{
+  display: flex;
+  /* border: solid red; */
+  flex-direction: row;
+  margin: 2rem auto;
+  width: 60%;
+}
+
+p{
+  margin: 0 2.5%;
+}
+
+.creator-tag{
+  margin: 2rem 2.5%;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+@media screen and (max-width: 705px) {
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .edit-button{
+    height: 36px;
+  }
+}

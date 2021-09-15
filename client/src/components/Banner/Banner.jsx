@@ -1,3 +1,9 @@
+import "./Banner.css";
+
 export default function Banner() {
-  return <h1>Banner Component</h1>
+  return (
+    <div className="featured-jams-banner">
+      <img src="https://i.imgur.com/G572Bja.png" alt="banner" />
+    </div>
+  );
 }
