@@ -1,0 +1,18 @@
+nav {
+  background-color: #1C0761;
+  width: 100%;
+}
+
+nav .nav .links {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 40px;
+}
+
+nav .nav .links .link {
+  color: white;
+  text-decoration: none;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  padding: 10px;
+}
