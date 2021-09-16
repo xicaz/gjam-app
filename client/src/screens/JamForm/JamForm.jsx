@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import Layout from "../../components/Layout/Layout";
-import { createJam, getJam, updateJam } from "../../services/jams.js";
-import { useHistory } from "react-router";
-import { useParams, Link } from "react-router-dom";
-import "./JamForm.css";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react"
+import Layout from "../../components/Layout/Layout"
+import { createJam, getJam, updateJam } from "../../services/jams.js"
+import { useHistory } from "react-router"
+import { useParams, Link } from "react-router-dom"
+import "./JamForm.css"
+import Form from "react-bootstrap/Form"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
 
 export default function JamForm(props) {
-  const [jam, setJam] = useState(null);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [jam, setJam] = useState(null)
+  const [isCompleted, setIsCompleted] = useState(false)
   const [inputs, setInputs] = useState({
     name: "",
     creator: "",
@@ -21,10 +21,10 @@ export default function JamForm(props) {
     spiciness: "",
     sweetness: "",
     ingredients: ["", "", "", ""],
-  });
+  })
 
-  let { id } = useParams();
-  let history = useHistory();
+  let { id } = useParams()
+  let history = useHistory()
 
   const ingredients = [
     "Banana",
@@ -41,64 +41,64 @@ export default function JamForm(props) {
     "Raspberry",
     "Strawberry",
     "Tangerine",
-  ];
+  ]
 
-  const defaultPicture = "https://i.imgur.com/48ffGSy.png";
-  const defaultHover = "https://i.imgur.com/6wjmM3Y.png";
+  const defaultPicture = "https://i.imgur.com/48ffGSy.png"
+  const defaultHover = "https://i.imgur.com/6wjmM3Y.png"
 
   useEffect(() => {
     if (id) {
       const fetchJam = async () => {
-        const jam = await getJam(id);
-        console.log(jam);
-        setJam(jam);
+        const jam = await getJam(id)
+        console.log(jam)
+        setJam(jam)
         if (jam) {
-          setInputs(jam);
+          setInputs(jam)
         }
-      };
-      fetchJam();
+      }
+      fetchJam()
     }
-  }, [id]);
+  }, [id])
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     if (name.includes("ingredients")) {
-      const newIngredients = inputs.ingredients;
-      const ind = name.slice(-1) - 1;
-      newIngredients[ind] = value;
+      const newIngredients = inputs.ingredients
+      const ind = name.slice(-1) - 1
+      newIngredients[ind] = value
       setInputs({
         ...inputs,
         ingredients: newIngredients,
-      });
+      })
     } else {
       setInputs({
         ...inputs,
         [name]: value,
-      });
+      })
     }
-  };
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const newJam = {
       ...inputs,
       restricted: false,
       imgURL: defaultPicture,
       hoverImage: defaultHover,
-    };
+    }
     if (jam) {
-      const updated = await updateJam(id, newJam);
+      const updated = await updateJam(id, newJam)
       if (updated) {
-        history.push(`/jams/${id}`);
+        history.push(`/jams/${id}`)
       }
     } else {
-      const created = await createJam(newJam);
+      const created = await createJam(newJam)
       if (created) {
-        history.push(`/jams/${created._id}`);
+        history.push(`/jams/${created._id}`)
       }
-      setIsCompleted({ created });
+      setIsCompleted({ created })
     }
-  };
+  }
 
   return (
     <Layout user={props.user}>
@@ -369,10 +369,10 @@ export default function JamForm(props) {
           />
         </Form.Group> */}
 
-        <Button variant="outline-dark" type="submit">
+        <Button id="button" variant="outline-dark" type="submit">
           {jam ? "Update" : "Create"}
         </Button>
       </Form>
     </Layout>
-  );
+  )
 }
