@@ -102,7 +102,7 @@ export default function JamForm(props) {
 
   return (
     <Layout user={props.user}>
-      <Form noValidate onSubmit={handleSubmit}>
+      <Form className="jam-form" noValidate onSubmit={handleSubmit}>
         <Form.Label> {jam ? "Edit" : "Create a Jam"} </Form.Label>
 
         <Row className="mb-3">

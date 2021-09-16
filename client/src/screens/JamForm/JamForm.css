@@ -9,7 +9,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-Form {
+.jam-form {
   margin: 10rem auto;
   width: 80%;
 }
