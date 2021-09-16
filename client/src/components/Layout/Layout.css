@@ -1,3 +1,10 @@
-.layout-children {
-  min-height: 80vh;
+.layout {
+  display: flex;
+  flex: auto 1fr auto;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout .layout-children {
+  flex-grow: 1;
 }

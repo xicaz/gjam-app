@@ -3,16 +3,22 @@ nav {
   width: 100%;
 }
 
-nav .nav .links {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 40px;
+nav .dropdown-menu {
+  background-color: #1C0761;
 }
 
-nav .nav .links .link {
+nav .dropdown-menu.show {
+  margin: 0;
+  padding: 0;
+}
+
+nav .dropdown-menu.show .dropdown-item:hover {
+  background-color: #5f3fc7;
+}
+
+nav .nav-link, nav .nav-link:hover, nav .nav-link:focus, nav .nav-item {
   color: white;
   text-decoration: none;
   font-family: 'Work Sans', sans-serif;
   font-size: 18px;
-  padding: 10px;
 }

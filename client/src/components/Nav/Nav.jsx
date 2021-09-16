@@ -1,23 +1,31 @@
 import { NavLink } from "react-router-dom";
 import "./Nav.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Navbar, NavDropdown, Nav} from 'react-bootstrap';
 
-export default function Nav(props) {
+export default function NavMenu(props) {
   return (
-    <nav>
-      <div className="nav">
-        <div className="links">
-          <NavLink className="link" to="/jams">products</NavLink>
-          <NavLink className="link" to="/jams/new">create</NavLink>
-          <NavLink className="link" to="/about">about</NavLink>
-          {props.user 
-            ? <>
-                {/* <p>{props.user.name}</p> */}
-                <NavLink className="link" to="/signout">sign out</NavLink>
-              </>
-            : <NavLink className="link" to="/signin">sign in</NavLink>
+    <Nav>
+      <Navbar className="justify-content-end">
+        <NavDropdown title="products" id="products-dropdown">
+          <NavDropdown.Item><NavLink className="nav-link" to="/">premium</NavLink></NavDropdown.Item>
+          <NavDropdown.Item><NavLink className="nav-link" to="/jams">jams list</NavLink></NavDropdown.Item>
+        </NavDropdown>
+        <NavLink className="nav-link" to="/jams/new">create</NavLink>
+        <NavLink className="nav-link" to="/about">about</NavLink>
+        <NavDropdown title="account" id="products-dropdown">
+          {props.user
+          ? <>
+              <NavDropdown.Item><NavLink className="nav-link" to="/">sign out</NavLink></NavDropdown.Item>
+              <NavDropdown.Item><NavLink className="nav-link" to="/jams">jams list</NavLink></NavDropdown.Item>
+            </>
+          : <>
+              <NavDropdown.Item><NavLink className="nav-link" to="/signin">sign in</NavLink></NavDropdown.Item>
+              <NavDropdown.Item><NavLink className="nav-link" to="/signup">sign up</NavLink></NavDropdown.Item>
+            </>
           }
-        </div>
-      </div>
-    </nav>
+        </NavDropdown>
+      </Navbar>
+    </Nav>
   );
 }
