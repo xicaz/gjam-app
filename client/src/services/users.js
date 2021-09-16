@@ -60,3 +60,13 @@ export const addToCart = async (userId, item) => {
     throw error;
   }
 }
+
+export const removeFromCart = async (userId, item) => {
+  try {
+    const res = await api.delete(`/users/${userId}/cart/${item}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
