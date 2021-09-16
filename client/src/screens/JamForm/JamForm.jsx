@@ -111,7 +111,7 @@ export default function JamForm(props) {
             <Form.Label>Jam Name</Form.Label>
             <Form.Control
               type="text"
-              name="firstName"
+              name="jamName"
               // value={values.firstName}
               onChange={handleChange}
               // isValid={touched.firstName && !errors.firstName}
@@ -124,10 +124,10 @@ export default function JamForm(props) {
             controlId="validationFormik102"
             className="position-relative"
           >
-            <Form.Label>Last name</Form.Label>
+            <Form.Label>Creator</Form.Label>
             <Form.Control
               type="text"
-              name="lastName"
+              name="creator"
               // value={values.lastName}
               onChange={handleChange}
               // isValid={touched.lastName && !errors.lastName}
@@ -136,7 +136,7 @@ export default function JamForm(props) {
             <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
-            <Form.Label>Username</Form.Label>
+            <Form.Label>Price</Form.Label>
             {/* <InputGroup hasValidation> */}
             {/* <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text> */}
             <Form.Control
@@ -154,22 +154,20 @@ export default function JamForm(props) {
             {/* </InputGroup> */}
           </Form.Group>
         </Row>
+
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="6"
+            md="3"
             controlId="validationFormik103"
             className="position-relative"
           >
-            <Form.Label>City</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="City"
-              name="city"
-              // value={values.city}
-              onChange={handleChange}
-              // isInvalid={!!errors.city}
-            />
+            <Form.Select aria-label="Default select example">
+              <option>Select Fruit</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
               {/* {errors.city} */}
@@ -181,15 +179,13 @@ export default function JamForm(props) {
             controlId="validationFormik104"
             className="position-relative"
           >
-            <Form.Label>State</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="State"
-              name="state"
-              // value={values.state}
-              onChange={handleChange}
-              // isInvalid={!!errors.state}
-            />
+            <Form.Select aria-label="Default select example">
+              <option>Select Fruit</option>
+
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
             <Form.Control.Feedback type="invalid" tooltip>
               {/* {errors.state} */}
             </Form.Control.Feedback>
@@ -200,15 +196,32 @@ export default function JamForm(props) {
             controlId="validationFormik105"
             className="position-relative"
           >
-            <Form.Label>Zip</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Zip"
-              name="zip"
-              // value={values.zip}
-              onChange={handleChange}
-              // isInvalid={!!errors.zip}
-            />
+            <Form.Select aria-label="Default select example">
+              <option>Select Fruit</option>
+
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+
+            <Form.Control.Feedback type="invalid" tooltip>
+              {/* {errors.zip} */}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationFormik105"
+            className="position-relative"
+          >
+            <Form.Select aria-label="Default select example">
+              <option>Select Fruit</option>
+
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
               {/* {errors.zip} */}
@@ -216,7 +229,7 @@ export default function JamForm(props) {
           </Form.Group>
         </Row>
         <Form.Group className="position-relative mb-3">
-          <Form.Label>File</Form.Label>
+          <Form.Label>Upload Image</Form.Label>
           <Form.Control
             type="file"
             required
@@ -228,6 +241,7 @@ export default function JamForm(props) {
             {/* {errors.file} */}
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group className="position-relative mb-3">
           <Form.Check
             required
@@ -240,7 +254,7 @@ export default function JamForm(props) {
             feedbackTooltip
           />
         </Form.Group>
-        <Button type="submit">Submit form</Button>
+        <Button type="submit">Create Jam</Button>
       </Form>
 
       <div>below this is important</div>
