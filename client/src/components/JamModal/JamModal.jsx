@@ -46,8 +46,8 @@ export default function JamModal(props) {
                 <img width="300px" src={props.jam.imgURL} alt="{props.jam.name}" />
               </div>
               <div className="modal-details">
-                <h2 className="modal-title" id="transition-modal-title">{props.jam.name}</h2>
-                <h3 id="transition-modal-description">${props.jam.price}</h3>
+                <h1 className="modal-title" id="transition-modal-title">{props.jam.name}</h1>
+                <h4 id="transition-modal-description">${props.jam.price}</h4>
                 <p>Ingredients: {props.jam.ingredients.join(" ")}</p>
                 <p>{props.jam.description.split(" ").slice(0, 10).join(" ").replace(/[,\/#$%\^&\*;:{}=\-_`~]/g, "")}...</p>
                 <Link to={`/jams/${props.jam._id}`}> more details </Link>
