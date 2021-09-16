@@ -38,6 +38,11 @@ export default function NavMenu(props) {
           {props.user ? (
             <>
               <NavDropdown.Item>
+                <NavLink className="nav-link" to="/cart">
+                  cart
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
                 <NavLink className="nav-link" to="/signout">
                   sign out
                 </NavLink>
