@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getJam, deleteJam } from "../../services/jams";
 import { useHistory } from "react-router";
 import "./JamDetail.css";

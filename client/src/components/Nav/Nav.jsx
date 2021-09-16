@@ -17,15 +17,11 @@ export default function NavMenu(props) {
         className="justify-content-end"
       >
         <NavDropdown title="products" id="products-dropdown">
-          <NavDropdown.Item>
-            <NavLink className="nav-link" to="/">
-              premium
-            </NavLink>
+          <NavDropdown.Item href="/">
+            premium
           </NavDropdown.Item>
-          <NavDropdown.Item>
-            <NavLink className="nav-link" to="/jams">
-              jams list
-            </NavLink>
+          <NavDropdown.Item href="/jams">
+            jams list
           </NavDropdown.Item>
         </NavDropdown>
         <NavLink className="nav-link" to="/jams/new">
@@ -37,23 +33,17 @@ export default function NavMenu(props) {
         <NavDropdown title="account" id="products-dropdown">
           {props.user ? (
             <>
-              <NavDropdown.Item>
-                <NavLink className="nav-link" to="/signout">
-                  sign out
-                </NavLink>
+              <NavDropdown.Item href="/signout">
+                sign out
               </NavDropdown.Item>
             </>
           ) : (
             <>
-              <NavDropdown.Item>
-                <NavLink className="nav-link" to="/signin">
+              <NavDropdown.Item href="/signin">
                   sign in
-                </NavLink>
               </NavDropdown.Item>
-              <NavDropdown.Item>
-                <NavLink className="nav-link" to="/signup">
+              <NavDropdown.Item href="/signup">
                   sign up
-                </NavLink>
               </NavDropdown.Item>
             </>
           )}

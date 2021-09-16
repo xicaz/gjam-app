@@ -19,7 +19,6 @@ export default function FeaturedJams(props) {
       {featuredJams.map((jam, index) => {
         return (
           <JamCard
-            //imgURL={jam.imgURL}
             imgURL={"https://i.imgur.com/m2o9NB9.png"}
             jam={jam}
             key={index}
