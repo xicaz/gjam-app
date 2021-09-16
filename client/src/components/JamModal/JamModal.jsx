@@ -1,8 +1,9 @@
-import { makeStyles } from "@material-ui/core/styles"
-import Modal from "@material-ui/core/Modal"
-import Backdrop from "@material-ui/core/Backdrop"
-import Fade from "@material-ui/core/Fade"
-import { Link } from "react-router-dom"
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import { Link } from "react-router-dom";
+import Row from "react-bootstrap/esm/Row";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -12,15 +13,16 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
     boxShadow: theme.shadows[5],
+    border: "1px solid #000",
     padding: theme.spacing(2, 4, 3),
+    alignItems: "left",
   },
-}))
+}));
 
 export default function JamModal(props) {
-  const classes = useStyles()
-  const { open, handleOpen, handleClose } = props
+  const classes = useStyles();
+  const { open, handleOpen, handleClose } = props;
 
   return (
     <div>
@@ -38,6 +40,7 @@ export default function JamModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
+            <img width="300px" src={props.jam.imgURL} alt="{props.jam.name}" />
             <h2 id="transition-modal-title">{props.jam.name}</h2>
             <p id="transition-modal-description">${props.jam.price}</p>
             <Link to={`/jams/${props.jam._id}`}> more details </Link>
@@ -45,5 +48,5 @@ export default function JamModal(props) {
         </Fade>
       </Modal>
     </div>
-  )
+  );
 }
