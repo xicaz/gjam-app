@@ -9,10 +9,6 @@ nav .nav .links {
   padding: 0 40px;
 }
 
-.nav {
-  justify-content: end;
-}
-
 nav .nav .links .link {
   color: white;
   text-decoration: none;

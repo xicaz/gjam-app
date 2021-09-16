@@ -40,7 +40,7 @@ export default function JamModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <img src={props.jam.imgURL} alt="{props.jam.name}" />
+            <img width="300px" src={props.jam.imgURL} alt="{props.jam.name}" />
             <h2 id="transition-modal-title">{props.jam.name}</h2>
             <p id="transition-modal-description">${props.jam.price}</p>
             <Link to={`/jams/${props.jam._id}`}> more details </Link>
