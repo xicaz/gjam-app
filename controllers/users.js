@@ -113,3 +113,15 @@ export const removeFromCart = async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 }
+
+export const clearCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    user.cart = []
+    user.save()
+    res.status(200).send("Cart cleared")
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message })
+  }
+}
