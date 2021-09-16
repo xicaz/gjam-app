@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout/Layout";
 import { useState } from "react";
-// import './SignUp.css'
+import './SignUp.css'
 import { signUp } from "../../services/users";
 import { useHistory, Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";

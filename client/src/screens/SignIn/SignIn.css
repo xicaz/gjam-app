@@ -28,3 +28,9 @@
   text-decoration: none;
   color: #1c0761;
 }
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: 100%;
+  }
+}
