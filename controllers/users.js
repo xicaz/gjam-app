@@ -95,7 +95,20 @@ export const addToCart = async (req, res) => {
     user.cart.push(item)
     await user.save()
     res.status(201).json(item)
-  } catch {
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message })
+  }
+}
+
+export const removeFromCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    const item = await Jam.findById(req.params.item)
+    user.cart.splice(user.cart.indexOf(item._id), 1)
+    await user.save()
+    res.status(200).send("Removed from cart")
+  } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message })
   }
