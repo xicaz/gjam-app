@@ -57,7 +57,7 @@ export default function SignUp(props) {
   return (
     <Layout user={props.user}>
       <Form className="form-container sign-up" onSubmit={onSignUp}>
-        <Form.Group className="mb-3" controlId="signUpName">
+        <Form.Group className="mb-3">
           <Form.Label>Create a Jam? Sign up.</Form.Label>
           <Form.Control
             type="name"
@@ -68,7 +68,7 @@ export default function SignUp(props) {
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="signUpEmail">
+        <Form.Group className="mb-3">
           <Form.Control
             type="email"
             name="email"
@@ -79,7 +79,7 @@ export default function SignUp(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="signUpPassword">
+        <Form.Group className="mb-3">
           <Form.Control
             type="password"
             name="password"
@@ -90,7 +90,7 @@ export default function SignUp(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="signUpPasswordConfirm">
+        <Form.Group className="mb-3">
           <Form.Control
             onChange={handleChange}
             required

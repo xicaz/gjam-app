@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Layout from "../../components/Layout/Layout"
 import { createJam, getJam, updateJam } from "../../services/jams.js"
 import { useHistory } from "react-router"
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import "./JamForm.css"
 import Form from "react-bootstrap/Form"
 import Row from "react-bootstrap/Row"
@@ -109,7 +109,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="4"
-            controlId="validationFormik101"
             className="position-relative"
           >
             <Form.Control
@@ -126,7 +125,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="4"
-            controlId="validationFormik102"
             className="position-relative"
           >
             <Form.Control
@@ -141,7 +139,7 @@ export default function JamForm(props) {
 
             <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
+          <Form.Group as={Col} md="4">
             <Form.Control
               required
               type="number"
@@ -162,7 +160,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="6"
-            controlId="validationFormik101"
             className="position-relative"
           >
             <Form.Label>Description</Form.Label>
@@ -185,7 +182,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik103"
             className="position-relative"
           >
             <Form.Label>Sweetness</Form.Label>
@@ -212,7 +208,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik103"
             className="position-relative"
           >
             <Form.Label>Spiciness</Form.Label>
@@ -244,7 +239,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik104"
             className="position-relative"
           >
             <Form.Select
@@ -271,7 +265,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik104"
             className="position-relative"
           >
             <Form.Select
@@ -300,7 +293,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik105"
             className="position-relative"
           >
             <Form.Select
@@ -329,7 +321,6 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik105"
             className="position-relative"
           >
             <Form.Select
@@ -355,19 +346,6 @@ export default function JamForm(props) {
             ></Form.Control.Feedback>
           </Form.Group>
         </Row>
-
-        {/* <Form.Group className="position-relative mb-3">
-          <Form.Check
-            required
-            name="terms"
-            label="Agree to terms and conditions"
-            onChange={handleChange}
-            isInvalid={!!errors.terms}
-            feedback={errors.terms}
-            id="validationFormik106"
-            feedbackTooltip
-          />
-        </Form.Group> */}
 
         <Button id="button" variant="outline-dark" type="submit">
           {jam ? "Update" : "Create"}

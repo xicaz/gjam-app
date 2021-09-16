@@ -47,7 +47,7 @@ export default function SignIn(props) {
   return (
     <Layout user={props.user}>
       <Form className="form-container sign-in" onSubmit={onSignIn}>
-        <Form.Group className="mb-3" controlId="signInEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Sign In</Form.Label>
           <Form.Control
             type="email"
@@ -59,7 +59,7 @@ export default function SignIn(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="signInPassword">
+        <Form.Group className="mb-3">
           <Form.Control
             type="password"
             name="password"

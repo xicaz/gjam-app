@@ -24,7 +24,11 @@ nav .collapse.show .dropdown-menu.show {
   border: 1px solid #5f3fc7
 }
 
-nav .nav-link, nav .nav-link:hover, nav .nav-link:focus, nav .nav-item {
+nav .dropdown-item {
+  padding: 8px 16px;
+}
+
+nav .nav-link, nav .nav-link:hover, nav .nav-link:focus, nav .nav-item, nav .dropdown-item {
   color: white;
   text-decoration: none;
   font-family: "Work Sans", sans-serif;
