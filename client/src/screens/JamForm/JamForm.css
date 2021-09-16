@@ -10,10 +10,19 @@ input[type="number"] {
 }
 
 Form {
-  margin: 5% 0 0;
+  margin: 10rem auto;
+  width: 80%;
+}
+
+#button {
+  margin-top: 4rem;
 }
 
 @media screen and (max-width: 770px) {
+  Form {
+    margin: 5rem auto;
+  }
+
   .form-control,
   .form-select {
     margin: 0.25rem;
