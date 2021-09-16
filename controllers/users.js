@@ -79,7 +79,7 @@ export const getCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const userCart = await Jam.find({
-      '_id': { $in: user.cart }
+      '_id': { $in: user.cart.map(item => item.jamId) }
     })
     res.json(userCart)
   } catch (error) {
@@ -92,8 +92,12 @@ export const addToCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const item = await Jam.findById(req.body.id)
-    // if (user.cart.map(item => item.id))
-    user.cart.push({jamId: item._id, quantity: 1})
+    const existingItemIndex = user.cart.findIndex(cartItem => cartItem._id = item._id)
+    if (existingItemIndex >= 0) {
+      user.cart[existingItemIndex].quantity += 1;
+    } else {
+      user.cart.push({ jamId: item._id, quantity: 1 })
+    }
     await user.save()
     res.status(201).json(item)
   } catch (error) {
