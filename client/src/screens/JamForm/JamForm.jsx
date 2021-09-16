@@ -262,7 +262,6 @@ export default function JamForm(props) {
               ))}
             </Form.Select>
             <Form.Control.Feedback type="invalid" tooltip>
-              {/* {errors.state} */}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group
@@ -289,7 +288,6 @@ export default function JamForm(props) {
             </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
-              {/* {errors.zip} */}
             </Form.Control.Feedback>
           </Form.Group>
 
@@ -317,7 +315,6 @@ export default function JamForm(props) {
             </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
-              {/* {errors.zip} */}
             </Form.Control.Feedback>
           </Form.Group>
 
@@ -345,23 +342,9 @@ export default function JamForm(props) {
             </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
-              {/* {errors.zip} */}
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        {/* <Form.Group className="position-relative mb-3">
-          <Form.Label>Upload Image</Form.Label>
-          <Form.Control
-            type="file"
-            required
-            name="file"
-            onChange={handleChange}
-            // isInvalid={!!errors.file}
-          />
-          <Form.Control.Feedback type="invalid" tooltip>
-            {errors.file}
-          </Form.Control.Feedback>
-        </Form.Group> */}
 
         {/* <Form.Group className="position-relative mb-3">
           <Form.Check
@@ -380,149 +363,6 @@ export default function JamForm(props) {
           {jam ? "Update" : "Create"}
         </Button>
       </Form>
-
-      <div>below this is important</div>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          required
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Jam Name"
-          onChange={handleChange}
-          value={inputs.name}
-        />
-        <input
-          required
-          type="text"
-          name="creator"
-          id="creator"
-          placeholder="Creator"
-          onChange={handleChange}
-          value={inputs.creator}
-        />
-        <input
-          required
-          type="number"
-          name="price"
-          id="price"
-          placeholder="Price"
-          onChange={handleChange}
-          value={inputs.price}
-        />
-        <input
-          required
-          type="text"
-          name="description"
-          id="description"
-          placeholder="description..."
-          onChange={handleChange}
-          value={inputs.description}
-        />
-        <input
-          type="text"
-          name="imgURL"
-          id="imgURL"
-          placeholder="Image URL"
-          onChange={handleChange}
-          value={inputs.imgURL}
-        />
-        <label htmlFor="spiciness">Spice level</label>
-        <select
-          required
-          name="spiciness"
-          id="spiciness"
-          onChange={handleChange}
-          value={inputs.spiciness}
-        >
-          <option value="" disabled hidden></option>
-          <option value="0%">0%</option>
-          <option value="25%">25%</option>
-          <option value="50%">50%</option>
-          <option value="75%">75%</option>
-          <option value="100%">100%</option>
-        </select>
-        <label htmlFor="sweetness">Sweetness</label>
-        <select
-          required
-          name="sweetness"
-          id="sweetness"
-          onChange={handleChange}
-          value={inputs.sweetness}
-        >
-          <option value="" disabled hidden></option>
-          <option value="50%">50%</option>
-          <option value="75%">75%</option>
-          <option value="100%">100%</option>
-        </select>
-        <label htmlFor="ingredients1">Ingredients</label>
-        <select
-          required
-          name="ingredients1"
-          id="ingredients1"
-          onChange={handleChange}
-          value={inputs.ingredients[0]}
-        >
-          <option value="" disabled hidden>
-            Ingredients
-          </option>
-          {ingredients.map((ing, index) => (
-            <option value={ing} key={index}>
-              {ing}
-            </option>
-          ))}
-        </select>
-        <select
-          required
-          name="ingredients2"
-          id="ingredients2"
-          onChange={handleChange}
-          value={inputs.ingredients[1]}
-        >
-          <option value="" disabled hidden>
-            Ingredients
-          </option>
-          {ingredients.map((ing, index) => (
-            <option value={ing} key={index}>
-              {ing}
-            </option>
-          ))}
-        </select>
-        <select
-          name="ingredients3"
-          id="ingredients3"
-          onChange={handleChange}
-          value={inputs.ingredients[2]}
-        >
-          <option value="" disabled hidden>
-            Ingredients
-          </option>
-          {ingredients.map((ing, index) => (
-            <option value={ing} key={index}>
-              {ing}
-            </option>
-          ))}
-        </select>
-        <select
-          name="ingredients4"
-          id="ingredients4"
-          onChange={handleChange}
-          value={inputs.ingredients[3]}
-        >
-          <option value="" disabled hidden>
-            Ingredients
-          </option>
-          {ingredients.map((ing, index) => (
-            <option value={ing} key={index}>
-              {ing}
-            </option>
-          ))}
-        </select>
-        <button type="submit">{jam ? "Update" : "Create"}</button>
-      </form>
-      <Link to={"/jams"}>
-        <button>Continue Shopping</button>
-      </Link> */}
     </Layout>
   );
 }
