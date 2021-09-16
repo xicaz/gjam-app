@@ -75,7 +75,7 @@ export const verify = async (req, res) => {
   }
 }
 
-export const getUserCart = async (req, res) => {
+export const getCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const userCart = await Jam.find({
@@ -86,4 +86,17 @@ export const getUserCart = async (req, res) => {
        console.error(error);
        res.status(500).json({ error: error.message })
   };
+}
+
+export const addToCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    const item = await Jam.findById(req.body.id)
+    user.cart.push(item)
+    await user.save()
+    res.status(201).json(item)
+  } catch {
+    console.error(error);
+    res.status(500).json({ error: error.message })
+  }
 }
