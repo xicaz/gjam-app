@@ -7,7 +7,7 @@ export default function About(props) {
         <div className="first-about">
           <div className="info-about">
             <h1>About Us</h1>
-            <h4>
+            <h4 className="info">
               We are a small grassroots company brought together by our passion
               of jam. g'JAM is proud to say that all of our ingredients come
               directly from us or local farms and fruit curators. We can always
@@ -43,7 +43,7 @@ export default function About(props) {
           />
           <div className="info-process">
             <h1>Our Process</h1>
-            <h4>
+            <h4 className="info">
               Our superb chef Josh curates all of our jam flavors by combining
               his knowledge of great flavor combinations with his obsession for
               taking risks. We spend time in the completely seperate test
@@ -57,14 +57,15 @@ export default function About(props) {
               oxygen from getting into our stellar jam. This makes it possible
               for the jars to sit on a shelf for up to a year without spoiling.
               But honestly, if our jam sits on your shelf for up to a year just
-              lose our number, we don't want your business. All of jams are made
-              by hand by Casey in very small batches. We cook our jams in one of
-              two ways: slow cooking, to produce a thick buttery spread, or
-              quick cooking, to retain as much color and flavor in the fruit as
-              possible. We add no sugar, gone with the pectin and we will
-              literally die before putting preservatives in our jam. Enjoy with
-              a spoon, spread on toast or bread. Or Garrett's personal favorite,
-              just open it and use your hand as a scoop.
+              lose our number, we don't want your business. All of our jams are
+              made by hand by Casey in very small batches. We cook our jams in
+              one of two ways: slow cooking, to produce a thick non-cloying
+              buttery spread, or quick cooking, to retain as much color and
+              flavor in the fruit as possible. We add no sugar, gone with the
+              pectin and we will literally die before putting preservatives in
+              our jam. Enjoy with a spoon, spread on toast or bread. Or
+              Garrett's personal favorite, just open it and use your hand as a
+              scoop.
             </h4>
           </div>
         </div>

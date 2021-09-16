@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+
 .about-container {
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -33,6 +35,7 @@
   align-items: center;
   width: 50%;
   margin-right: 3%;
+  font-family: "Cabin", sans-serif;
 }
 
 .first-image {
@@ -51,6 +54,7 @@
   align-items: center;
   width: 50%;
   margin-left: 3%;
+  font-family: "Cabin", sans-serif;
 }
 
 .second-image {
@@ -59,10 +63,16 @@
 
 @media only screen and (max-with: 900px) {
   .first-image {
-    width: 25%;
+    width: 45%;
+    height: 600px;
   }
   .second-image {
-    width: 25%;
+    width: 45%;
+    height: 600px;
+  }
+
+  .info {
+    font-size: 14px;
   }
 }
 
@@ -79,9 +89,19 @@
 
   .first-image {
     width: 80%;
+    display: flex;
+    order: -1;
   }
 
   .second-image {
+    width: 80%;
+  }
+
+  .info-about {
+    width: 80%;
+  }
+
+  .info-process {
     width: 80%;
   }
 }
