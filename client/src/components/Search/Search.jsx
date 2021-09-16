@@ -5,7 +5,7 @@ const Search = (props) => {
     <form className="search-form" onSubmit={(e) => props.onSubmit(e)}>
       <input
         className="search-input"
-        value={props.value}
+        value={props.name}
         onChange={(e) => props.handleSearch(e)}
         name="Search"
         placeholder="Search"
