@@ -6,10 +6,8 @@ import "./Layout.css";
 export default function Layout(props) {
   return (
     <div className="layout">
-      <header>
-        {props.banner ? <Banner /> : null}
-        <Nav user={props.user} />
-      </header>
+      {props.banner ? <Banner /> : null}
+      <Nav user={props.user} />
       <div className="layout-children">{props.children}</div>
       <Footer />
     </div>
