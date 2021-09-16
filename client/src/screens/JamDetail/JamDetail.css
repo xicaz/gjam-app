@@ -1,9 +1,12 @@
 .jam-detail {
   display: flex;
-  /* border: solid red; */
   flex-direction: row;
   margin: 10rem auto;
   width: 60%;
+}
+
+.jam-info {
+  margin-left: 3rem;
 }
 
 .jam-detail img {
@@ -21,7 +24,7 @@ p {
 .buttons {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 60%;
 }
 .buttons button {
   width: fit-content;
@@ -33,6 +36,15 @@ p {
   text-decoration: none;
   border-radius: 20px;
   padding: 7px 10px 7px;
+}
+
+#anchor-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.detail-button {
+  padding: 20px;
 }
 
 @media screen and (max-width: 705px) {
