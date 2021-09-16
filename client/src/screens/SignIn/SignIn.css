@@ -8,6 +8,12 @@
   width: fit-content;
   margin: 0 auto;
   display: flex;
+  background-color: #00c987;
+  border: none;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 0.25rem 1.5rem 0.25rem;
 }
 
 #link {
@@ -15,8 +21,10 @@
   margin: 1rem 0 0;
   text-align: center;
   text-decoration: none;
+  color: #1c0761;
 }
 
 .form-container a:link {
   text-decoration: none;
+  color: #1c0761;
 }
