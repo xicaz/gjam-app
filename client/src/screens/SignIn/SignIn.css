@@ -1,4 +1,4 @@
-.form-container {
+.form-container.sign-in {
   width: 55%;
   padding: 5% 10% 5%;
   margin: 2rem auto;
@@ -16,21 +16,19 @@
   padding: 0.25rem 1.5rem 0.25rem;
 }
 
-#link {
+.form-container.sign-in #link {
   display: block;
   margin: 1rem 0 0;
   text-align: center;
-  text-decoration: none;
-  color: #1c0761;
 }
 
-#link a {
+.form-container.sign-in #link a {
   text-decoration: none;
   color: #1c0761;
 }
 
 @media screen and (max-width: 768px) {
-  .form-container {
+  .form-container.sign-in {
     width: 100%;
   }
 }

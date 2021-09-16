@@ -1,6 +1,7 @@
-a #link {
-  text-decoration: none;
-  color: #1c0761;
+.form-container.sign-up {
+  width: 55%;
+  padding: 5% 10% 5%;
+  margin: 2rem auto;
 }
 
 .btn {
@@ -15,6 +16,19 @@ a #link {
   padding: 0.25rem 1.5rem 0.25rem;
 }
 
+.form-container.sign-up #link {
+  display: block;
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.form-container.sign-up #link a {
+  text-decoration: none;
+  color: #1c0761;
+}
+
 @media screen and (max-width: 768px) {
-  
+  .form-container.sign-up {
+    width: 100%;
+  }
 }

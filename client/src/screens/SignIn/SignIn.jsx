@@ -46,7 +46,7 @@ export default function SignIn(props) {
 
   return (
     <Layout user={props.user}>
-      <Form className="form-container" onSubmit={onSignIn}>
+      <Form className="form-container sign-in" onSubmit={onSignIn}>
         <Form.Group className="mb-3" controlId="signInEmail">
           <Form.Label>Sign In</Form.Label>
           <Form.Control
