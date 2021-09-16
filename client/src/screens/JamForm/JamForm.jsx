@@ -44,6 +44,7 @@ export default function JamForm(props) {
   ];
 
   const defaultPicture = "https://i.imgur.com/48ffGSy.png";
+  const defaultHover = "https://i.imgur.com/6wjmM3Y.png";
 
   useEffect(() => {
     if (id) {
@@ -82,7 +83,8 @@ export default function JamForm(props) {
     const newJam = {
       ...inputs,
       restricted: false,
-      imgURL: inputs.imgURL || defaultPicture,
+      imgURL: defaultPicture,
+      hoverImage: defaultHover,
     };
     if (jam) {
       const updated = await updateJam(id, newJam);
@@ -261,8 +263,10 @@ export default function JamForm(props) {
                 </option>
               ))}
             </Form.Select>
-            <Form.Control.Feedback type="invalid" tooltip>
-            </Form.Control.Feedback>
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
           </Form.Group>
           <Form.Group
             as={Col}
@@ -287,8 +291,10 @@ export default function JamForm(props) {
               ))}
             </Form.Select>
 
-            <Form.Control.Feedback type="invalid" tooltip>
-            </Form.Control.Feedback>
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group
@@ -314,8 +320,10 @@ export default function JamForm(props) {
               ))}
             </Form.Select>
 
-            <Form.Control.Feedback type="invalid" tooltip>
-            </Form.Control.Feedback>
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group
@@ -341,8 +349,10 @@ export default function JamForm(props) {
               ))}
             </Form.Select>
 
-            <Form.Control.Feedback type="invalid" tooltip>
-            </Form.Control.Feedback>
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
           </Form.Group>
         </Row>
 
