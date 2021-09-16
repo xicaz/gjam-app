@@ -40,3 +40,13 @@ export const verifyUser = async () => {
   }
   return false;
 };
+
+export const getCart = async id => {
+  try {
+    const res = await api.get(`users/${id}/cart`)
+    return res.data;
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}

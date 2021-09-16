@@ -9,6 +9,7 @@ import Jams from "./screens/Jams/Jams";
 import SignIn from "./screens/SignIn/SignIn";
 import SignUp from "./screens/SignUp/SignUp";
 import SignOut from "./screens/SignOut/SignOut";
+import Cart from "./screens/Cart/Cart";
 import { verifyUser } from "./services/users";
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
       </Route>
       <Route path="/about">
         <About user={user} />
+      </Route>
+      <Route path="/cart">
+        <Cart user={user} />
       </Route>
     </Switch>
   );
