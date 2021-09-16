@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout/Layout";
 import { useState } from "react";
-// import './SignUp.css'
+import './SignUp.css'
 import { signUp } from "../../services/users";
 import { useHistory, Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -56,8 +56,8 @@ export default function SignUp(props) {
 
   return (
     <Layout user={props.user}>
-      <Form className="form-container" onSubmit={onSignUp}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form className="form-container sign-up" onSubmit={onSignUp}>
+        <Form.Group className="mb-3">
           <Form.Label>Create a Jam? Sign up.</Form.Label>
           <Form.Control
             type="name"
@@ -68,7 +68,7 @@ export default function SignUp(props) {
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Control
             type="email"
             name="email"
@@ -79,7 +79,7 @@ export default function SignUp(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Control
             type="password"
             name="password"
@@ -90,7 +90,7 @@ export default function SignUp(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Control
             onChange={handleChange}
             required

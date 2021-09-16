@@ -39,14 +39,14 @@ export default function About(props) {
           <img
             className="first-image"
             src="https://i.imgur.com/48ffGSy.png"
-            alt="picture of jam"
+            alt="jam"
           />
         </div>
         <div className="second-about">
           <img
             className="second-image"
             src="https://i.imgur.com/48ffGSy.png"
-            alt="picture of jam"
+            alt="jam"
           />
           <div className="info-process">
             <h1>Our Process</h1>

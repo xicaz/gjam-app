@@ -3,7 +3,6 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Link } from "react-router-dom";
-import Row from "react-bootstrap/esm/Row";
 import "./JamModal.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function JamModal(props) {
   const classes = useStyles();
-  const { open, handleOpen, handleClose } = props;
+  const { open, handleClose } = props;
 
   return (
     <div>
