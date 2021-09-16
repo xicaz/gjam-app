@@ -12,53 +12,33 @@ const insertData = async () => {
     name: "Garrett",
     email: "root@super.gmail.com",
     password_digest: await bcrypt.hash("!a$ecureP@ssw0Rd55!", 11),
-<<<<<<< HEAD
     cart: []
   })
   await user1.save()
-=======
-  });
-  await user1.save();
->>>>>>> 5d67c242bb48811c1962878ff3078686ce8bbef8
 
   const user2 = new User({
     name: "Jexica",
     email: "b.anca@super.gmail.com",
     password_digest: await bcrypt.hash("!$h0pp3R1", 11),
-<<<<<<< HEAD
     cart: []
   })
   await user2.save()
-=======
-  });
-  await user2.save();
->>>>>>> 5d67c242bb48811c1962878ff3078686ce8bbef8
 
   const user3 = new User({
     name: "Josh",
     email: "n.zo@super.gmail.com",
     password_digest: await bcrypt.hash("!$eller4Lif3", 11),
-<<<<<<< HEAD
     cart: []
   })
   await user3.save()
-=======
-  });
-  await user3.save();
->>>>>>> 5d67c242bb48811c1962878ff3078686ce8bbef8
 
   const user4 = new User({
     name: "Casey",
     email: "kumi@super.gmail.com",
     password_digest: await bcrypt.hash("L0v32!p4int", 11),
-<<<<<<< HEAD
     cart: []
   })
   await user4.save()
-=======
-  });
-  await user4.save();
->>>>>>> 5d67c242bb48811c1962878ff3078686ce8bbef8
 
   const jams = [
     {
