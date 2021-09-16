@@ -53,21 +53,10 @@
   margin-top: 2px;
 }
 
-@media only screen and (max-width: 800px) {
-  .jam-card {
-    width: 45%;
-  }
-}
-
 @media only screen and (max-width: 600px) {
   .jams-container {
     display: flex;
     flex-direction: column;
     width: 90%;
-  }
-
-  .jam-card {
-    width: 100%;
-    margin: 4px 0px;
   }
 }
