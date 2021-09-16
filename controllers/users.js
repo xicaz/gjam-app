@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
+import Jam from '../models/jam.js'
 
 const SALT_ROUNDS = process.env.SALT_ROUNDS || 11
 const TOKEN_KEY = process.env.TOKEN_KEY || 'gjaminwithgjrandma'
@@ -72,4 +73,17 @@ export const verify = async (req, res) => {
     console.log(error.message)
     res.status(401).send('Not Authorized')
   }
+}
+
+export const getUserCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    const userCart = await Jam.find({
+      '_id': { $in: user.cart }
+    })
+    res.json(userCart)
+  } catch (error) {
+       console.error(error);
+       res.status(500).json({ error: error.message })
+  };
 }
