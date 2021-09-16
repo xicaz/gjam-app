@@ -1,0 +1,14 @@
+.modal-container{
+  display: flex;
+}
+
+.modal-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+
+.modal-title{
+  font-weight: bold;
+}
