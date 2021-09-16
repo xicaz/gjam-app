@@ -1,9 +1,13 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { createJam, getJam, updateJam } from "../../services/jams.js";
 import { useHistory } from "react-router";
 import { useParams, Link } from "react-router-dom";
 import "./JamForm.css";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export default function JamForm(props) {
   const [jam, setJam] = useState(null);
@@ -19,25 +23,39 @@ export default function JamForm(props) {
     ingredients: ["", "", "", ""],
   });
 
+  let { id } = useParams();
+  let history = useHistory();
 
-  let { id } = useParams()
-  let history = useHistory()
-
-  const ingredients = ["Banana", "Blueberry", "Grape", "Lemon", "Lime", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Pluot", "Raspberry", "Strawberry", "Tangerine"];
+  const ingredients = [
+    "Banana",
+    "Blueberry",
+    "Grape",
+    "Lemon",
+    "Lime",
+    "Nectarine",
+    "Orange",
+    "Peach",
+    "Pear",
+    "Plum",
+    "Pluot",
+    "Raspberry",
+    "Strawberry",
+    "Tangerine",
+  ];
 
   const defaultPicture = "https://i.imgur.com/48ffGSy.png";
 
   useEffect(() => {
     if (id) {
       const fetchJam = async () => {
-        const jam = await getJam(id)
-        console.log(jam)
-        setJam(jam)
-        if(jam) {
-          setInputs(jam)
+        const jam = await getJam(id);
+        console.log(jam);
+        setJam(jam);
+        if (jam) {
+          setInputs(jam);
         }
-      }
-      fetchJam()
+      };
+      fetchJam();
     }
   }, [id]);
 
@@ -64,17 +82,17 @@ export default function JamForm(props) {
     const newJam = {
       ...inputs,
       restricted: false,
-      imgURL: inputs.imgURL || defaultPicture
+      imgURL: inputs.imgURL || defaultPicture,
     };
     if (jam) {
       const updated = await updateJam(id, newJam);
-      if(updated) {
-        history.push(`/jams/${id}`)
+      if (updated) {
+        history.push(`/jams/${id}`);
       }
     } else {
       const created = await createJam(newJam);
       if (created) {
-        history.push(`/jams/${created._id}`)
+        history.push(`/jams/${created._id}`);
       }
       setIsCompleted({ created });
     }
@@ -82,7 +100,151 @@ export default function JamForm(props) {
 
   return (
     <Layout user={props.user}>
-      <form onSubmit={handleSubmit}>
+      <Form noValidate onSubmit={handleSubmit}>
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationFormik101"
+            className="position-relative"
+          >
+            <Form.Label>Jam Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="firstName"
+              // value={values.firstName}
+              onChange={handleChange}
+              // isValid={touched.firstName && !errors.firstName}
+            />
+            <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationFormik102"
+            className="position-relative"
+          >
+            <Form.Label>Last name</Form.Label>
+            <Form.Control
+              type="text"
+              name="lastName"
+              // value={values.lastName}
+              onChange={handleChange}
+              // isValid={touched.lastName && !errors.lastName}
+            />
+
+            <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
+            <Form.Label>Username</Form.Label>
+            {/* <InputGroup hasValidation> */}
+            {/* <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text> */}
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              aria-describedby="inputGroupPrepend"
+              name="username"
+              // value={values.username}
+              onChange={handleChange}
+              // isInvalid={!!errors.username}
+            />
+            <Form.Control.Feedback type="invalid" tooltip>
+              {/* {errors.username} */}
+            </Form.Control.Feedback>
+            {/* </InputGroup> */}
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="6"
+            controlId="validationFormik103"
+            className="position-relative"
+          >
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="City"
+              name="city"
+              // value={values.city}
+              onChange={handleChange}
+              // isInvalid={!!errors.city}
+            />
+
+            <Form.Control.Feedback type="invalid" tooltip>
+              {/* {errors.city} */}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationFormik104"
+            className="position-relative"
+          >
+            <Form.Label>State</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="State"
+              name="state"
+              // value={values.state}
+              onChange={handleChange}
+              // isInvalid={!!errors.state}
+            />
+            <Form.Control.Feedback type="invalid" tooltip>
+              {/* {errors.state} */}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationFormik105"
+            className="position-relative"
+          >
+            <Form.Label>Zip</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Zip"
+              name="zip"
+              // value={values.zip}
+              onChange={handleChange}
+              // isInvalid={!!errors.zip}
+            />
+
+            <Form.Control.Feedback type="invalid" tooltip>
+              {/* {errors.zip} */}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+        <Form.Group className="position-relative mb-3">
+          <Form.Label>File</Form.Label>
+          <Form.Control
+            type="file"
+            required
+            name="file"
+            onChange={handleChange}
+            // isInvalid={!!errors.file}
+          />
+          <Form.Control.Feedback type="invalid" tooltip>
+            {/* {errors.file} */}
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="position-relative mb-3">
+          <Form.Check
+            required
+            name="terms"
+            label="Agree to terms and conditions"
+            onChange={handleChange}
+            // isInvalid={!!errors.terms}
+            // feedback={errors.terms}
+            id="validationFormik106"
+            feedbackTooltip
+          />
+        </Form.Group>
+        <Button type="submit">Submit form</Button>
+      </Form>
+
+      <div>below this is important</div>
+      {/* <form onSubmit={handleSubmit}>
         <input
           required
           type="text"
@@ -220,7 +382,9 @@ export default function JamForm(props) {
         </select>
         <button type="submit">{jam ? "Update" : "Create"}</button>
       </form>
-      <Link to={'/jams'}><button>Continue Shopping</button></Link>
+      <Link to={"/jams"}>
+        <button>Continue Shopping</button>
+      </Link> */}
     </Layout>
   );
 }

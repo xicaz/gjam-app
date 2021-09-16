@@ -58,6 +58,7 @@ export default function SignUp(props) {
     <Layout user={props.user}>
       <Form className="form-container" onSubmit={onSignUp}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Create a Jam? Sign Up.</Form.Label>
           <Form.Control
             type="name"
             name="name"

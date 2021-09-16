@@ -1,4 +1,4 @@
-.jam-detail{
+.jam-detail {
   display: flex;
   /* border: solid red; */
   flex-direction: row;
@@ -6,28 +6,43 @@
   width: 60%;
 }
 
-p{
+.jam-deail img {
+  max-width: 300px;
+}
+
+p {
   margin: 0 2.5%;
 }
 
-.creator-tag{
+.creator-tag {
   margin: 2rem 2.5%;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-between;
   width: 50%;
 }
+.buttons button {
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  background-color: #00c987;
+  border: none;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 7px 10px 7px;
+}
 
 @media screen and (max-width: 705px) {
-  .buttons{
+  .buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
 
-  .edit-button{
+  .edit-button {
     height: 36px;
   }
 }
