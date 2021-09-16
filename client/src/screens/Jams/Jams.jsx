@@ -4,7 +4,7 @@ import "./Jams.css"
 import { useState, useEffect } from "react"
 import { getJams } from "../../services/jams"
 import { AZ, ZA, lowestFirst, highestFirst } from "../../utils/sort"
-// import Search from "../../components/Search/Search"
+import Search from "../../components/Search/Search"
 import Sort from "../../components/Sort/Sort"
 
 export default function Jams(props) {
@@ -61,10 +61,10 @@ export default function Jams(props) {
 
   return (
     <Layout user={props.user}>
-      {/* <Search onSubmit={handleSubmit} handleSearch={handleSearch} /> */}
+      <Search onSubmit={handleSubmit} handleSearch={handleSearch} />
       <Sort onSubmit={handleSubmit} handleSort={handleSort} />
       <div className="jams-container">
-        {jams.map((jam, index) => {
+        {searchResult.map((jam, index) => {
           return <JamCard jam={jam} key={index} />
         })}
       </div>

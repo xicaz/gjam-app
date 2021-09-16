@@ -8,7 +8,7 @@ const Search = (props) => {
         value={props.name}
         onChange={(e) => props.handleSearch(e)}
         name="Search"
-        placeholder="Search"
+        placeholder="Find your Jam"
         type="text"
         autoFocus
       />
