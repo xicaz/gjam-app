@@ -1,18 +1,22 @@
 nav {
-  background-color: #1C0761;
+  background-color: #1c0761;
   width: 100%;
 }
 
 nav .nav .links {
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
   padding: 0 40px;
+}
+
+.nav {
+  justify-content: end;
 }
 
 nav .nav .links .link {
   color: white;
   text-decoration: none;
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 18px;
   padding: 10px;
 }

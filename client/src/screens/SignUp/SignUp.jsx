@@ -58,46 +58,42 @@ export default function SignUp(props) {
     <Layout user={props.user}>
       <Form className="form-container" onSubmit={onSignUp}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Name</Form.Label>
           <Form.Control
             type="name"
             name="name"
             id="name"
-            placeholder="name"
+            placeholder="Name"
             value={form.name}
             onChange={handleChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             name="email"
             id="email"
-            placeholder="email"
+            placeholder="Email"
             value={form.email}
             onChange={handleChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             name="password"
             id="password"
-            placeholder="password"
+            placeholder="Password"
             value={form.password}
             onChange={handleChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             onChange={handleChange}
             required
-            type="password"
+            type="Password"
             name="passwordConfirmation"
             id="password-confirmation"
             value={form.passwordConfirmation}
@@ -105,12 +101,14 @@ export default function SignUp(props) {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="outline-dark" type="submit">
           Sign up
         </Button>
         {form.isError ? <p>{form.errorMsg}</p> : null}
-        <div id="link">
-          <Link to="/signin">Already have an account? Sign in!</Link>
+        <div id="link-container">
+          <Link id="link" to="/signin">
+            Already have an account? Sign in!
+          </Link>
         </div>
       </Form>
     </Layout>
