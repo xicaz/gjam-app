@@ -1,5 +1,5 @@
 nav {
-  background-color: #1C0761;
+  background-color: #1c0761;
   width: 100%;
 }
 
@@ -27,6 +27,6 @@ nav .collapse.show .dropdown-menu.show {
 nav .nav-link, nav .nav-link:hover, nav .nav-link:focus, nav .nav-item {
   color: white;
   text-decoration: none;
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 18px;
 }

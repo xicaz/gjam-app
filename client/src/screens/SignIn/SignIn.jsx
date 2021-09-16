@@ -48,30 +48,29 @@ export default function SignIn(props) {
     <Layout user={props.user}>
       <Form className="form-container" onSubmit={onSignIn}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Sign In</Form.Label>
           <Form.Control
             type="email"
             name="email"
             id="email"
-            placeholder="email"
+            placeholder="Email"
             value={form.email}
             onChange={handleChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             name="password"
             id="password"
-            placeholder="password"
+            placeholder="Password"
             value={form.password}
             onChange={handleChange}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="outline-dark" type="submit">
           Sign in
         </Button>
         {form.isError ? <p>{form.errorMsg}</p> : null}
@@ -82,3 +81,5 @@ export default function SignIn(props) {
     </Layout>
   );
 }
+
+// style={{ color: "#1C0761" }}
