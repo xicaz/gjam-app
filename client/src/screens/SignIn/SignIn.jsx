@@ -47,7 +47,7 @@ export default function SignIn(props) {
   return (
     <Layout user={props.user}>
       <Form className="form-container" onSubmit={onSignIn}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="signInEmail">
           <Form.Label>Sign In</Form.Label>
           <Form.Control
             type="email"
@@ -59,7 +59,7 @@ export default function SignIn(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="signInPassword">
           <Form.Control
             type="password"
             name="password"
@@ -81,5 +81,3 @@ export default function SignIn(props) {
     </Layout>
   );
 }
-
-// style={{ color: "#1C0761" }}
