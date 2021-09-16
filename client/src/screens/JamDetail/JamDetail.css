@@ -2,7 +2,7 @@
   display: flex;
   /* border: solid red; */
   flex-direction: row;
-  margin: 2rem auto;
+  margin: 10rem auto;
   width: 60%;
 }
 
@@ -36,6 +36,12 @@ p {
 }
 
 @media screen and (max-width: 705px) {
+  .jam-detail {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+  }
+
   .buttons {
     display: flex;
     justify-content: space-between;

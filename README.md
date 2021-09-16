@@ -54,27 +54,12 @@ const User = new Schema(
 
 #### MVP
 
-- Team Expectations Google document.
-- Filled out README.md.
-- Component Hierarchy
-- Assign and discuss team roles as well as strengths and any areas where a teammate wishes to improve
-- Have a working, interactive React app.
-- Have at least 6 separate, rendered components stored within an organized folder/file structure.
-- Utilize functional and class React components appropriately.
-- Use only React for DOM Manipulation.
-- Consume data from your API, and render that data in your components.
-- Utilize React Router, for client-side routing.
-- Authentication!
-- Home Screen
-- Listing Screen
-- Detail Screen
-- Have working generic controller actions for full-CRUD using Express, Mongoose, and MongoDB.
-- CSS styling.
-- Use flexbox and/or CSS Grid.
-- Implement responsive design on 2 screen sizes (desktop and mobile)
-- Deploy the fully functional front-end via Netlify.
-- Deploy the back-end via Heroku.
-- Deploy the MongoDB database on MongoDB Atlas.
+- User will be able to sign in, on sign in users will have the ability to create a jam and delete their own. Featured jams will not be able to be changed or deleted.
+- If user is not signed in, create link will not be available, instead it will redirect user to sign up page.
+- When a user clicks on a jam in the jams page, a modal will pop up of that jam. The ingredients will be listed as well as price and a brief description.
+- In order to make it easier for users to search for jams, a search bar has been included that will filter as the user types
+- A Sort feature lets the user sort the jams alphabetically(or reverse) and low to high(or high to low)
+- The app is password protected by authentication to protect user's personal information
 
 #### PostMVP
 
@@ -85,12 +70,12 @@ const User = new Schema(
 | Day    | Deliverable                                                                                           | Status   |
 | ------ | ----------------------------------------------------------------------------------------------------- | -------- |
 | Sep 9  | WireFrame, Project Approval                                                                           | Complete |
-| Sep 10 | Component Hierarchy, Github Setup, Team Expectations Doc, Start Coding, Backend, initialize react app |          |
-| Sep 12 | Backend, meet for an hour                                                                             |          |
-| Sep 13 | Aim for functionality by end of day                                                                   |          |
-| Sep 14 | MVP                                                                                                   |
-| Sep 15 | Responsiveness and extra styling                                                                      |          |
-| Sep 16 | Polishing, Post MVP                                                                                   |          |
+| Sep 10 | Component Hierarchy, Github Setup, Team Expectations Doc, Start Coding, Backend, initialize react app | Complete |
+| Sep 12 | Backend, meet for an hour                                                                             | Complete |
+| Sep 13 | Aim for functionality by end of day                                                                   | Complete |
+| Sep 14 | MVP                                                                                                   | Complete |
+| Sep 15 | Responsiveness and extra styling                                                                      | Complete |
+| Sep 16 | Polishing, Post MVP                                                                                   | Complete |
 | Sep 17 | Project Presentations                                                                                 |          |
 
 ## Team Expectations
