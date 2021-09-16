@@ -43,10 +43,20 @@ export const verifyUser = async () => {
 
 export const getCart = async id => {
   try {
-    const res = await api.get(`users/${id}/cart`)
+    const res = await api.get(`/users/${id}/cart`);
     return res.data;
   } catch (error) {
-    console.error(error)
-    throw error
+    console.error(error);
+    throw error;
+  }
+}
+
+export const addToCart = async (userId, item) => {
+  try {
+    const res = await api.post(`/users/${userId}/cart`, { id: item });
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 }
