@@ -101,6 +101,8 @@ export default function JamForm(props) {
   return (
     <Layout user={props.user}>
       <Form noValidate onSubmit={handleSubmit}>
+        <Form.Label> {jam ? "Edit" : "Create a Jam"} </Form.Label>
+
         <Row className="mb-3">
           <Form.Group
             as={Col}
@@ -108,13 +110,14 @@ export default function JamForm(props) {
             controlId="validationFormik101"
             className="position-relative"
           >
-            <Form.Label>Jam Name</Form.Label>
             <Form.Control
+              required
               type="text"
-              name="jamName"
-              // value={values.firstName}
+              name="name"
+              id="name"
+              placeholder="Jam Name"
               onChange={handleChange}
-              // isValid={touched.firstName && !errors.firstName}
+              value={inputs.name}
             />
             <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
           </Form.Group>
@@ -124,67 +127,139 @@ export default function JamForm(props) {
             controlId="validationFormik102"
             className="position-relative"
           >
-            <Form.Label>Creator</Form.Label>
             <Form.Control
+              required
               type="text"
               name="creator"
-              // value={values.lastName}
+              id="creator"
+              placeholder="Creator"
               onChange={handleChange}
-              // isValid={touched.lastName && !errors.lastName}
+              value={inputs.creator}
             />
 
             <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
-            <Form.Label>Price</Form.Label>
-            {/* <InputGroup hasValidation> */}
-            {/* <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text> */}
             <Form.Control
-              type="text"
-              placeholder="Username"
-              aria-describedby="inputGroupPrepend"
-              name="username"
-              // value={values.username}
+              required
+              type="number"
+              name="price"
+              id="price"
+              placeholder="Price"
               onChange={handleChange}
-              // isInvalid={!!errors.username}
+              value={inputs.price}
             />
-            <Form.Control.Feedback type="invalid" tooltip>
-              {/* {errors.username} */}
-            </Form.Control.Feedback>
-            {/* </InputGroup> */}
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
           </Form.Group>
         </Row>
 
         <Row className="mb-3">
           <Form.Group
             as={Col}
+            md="6"
+            controlId="validationFormik101"
+            className="position-relative"
+          >
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              required
+              as="textarea"
+              style={{
+                height: "150px",
+                resize: "none",
+              }}
+              name="description"
+              id="description"
+              placeholder="Drop a line from your favorite jam."
+              onChange={handleChange}
+              value={inputs.description}
+            />
+            <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
             md="3"
             controlId="validationFormik103"
             className="position-relative"
           >
-            <Form.Select aria-label="Default select example">
-              <option>Select Fruit</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <Form.Label>Sweetness</Form.Label>
+            <Form.Select
+              aria-label="Sweetness"
+              required
+              name="sweetness"
+              id="sweetness"
+              onChange={handleChange}
+              value={inputs.sweetness}
+            >
+              <option value="" disabled hidden></option>
+              <option value="50%">50%</option>
+              <option value="75%">75%</option>
+              <option value="100%">100%</option>
             </Form.Select>
 
-            <Form.Control.Feedback type="invalid" tooltip>
-              {/* {errors.city} */}
-            </Form.Control.Feedback>
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
           </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationFormik103"
+            className="position-relative"
+          >
+            <Form.Label>Spiciness</Form.Label>
+            <Form.Select
+              aria-label="Default select example"
+              required
+              name="spiciness"
+              id="spiciness"
+              onChange={handleChange}
+              value={inputs.spiciness}
+            >
+              <option value="" disabled hidden></option>
+              <option value="0%">0%</option>
+              <option value="25%">25%</option>
+              <option value="50%">50%</option>
+              <option value="75%">75%</option>
+              <option value="100%">100%</option>
+            </Form.Select>
+
+            <Form.Control.Feedback
+              type="invalid"
+              tooltip
+            ></Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+
+        <Row className="mb-3">
+          <Form.Label>Ingredients</Form.Label>
           <Form.Group
             as={Col}
             md="3"
             controlId="validationFormik104"
             className="position-relative"
           >
-            <Form.Select aria-label="Default select example">
-              <option>Select Fruit</option>
-
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <Form.Select
+              required
+              name="ingredients1"
+              id="ingredients1"
+              onChange={handleChange}
+              value={inputs.ingredients[0]}
+            >
+              <option value="" disabled hidden>
+                Select
+              </option>
+              {ingredients.map((ing, index) => (
+                <option value={ing} key={index}>
+                  {ing}
+                </option>
+              ))}
             </Form.Select>
             <Form.Control.Feedback type="invalid" tooltip>
               {/* {errors.state} */}
@@ -193,15 +268,24 @@ export default function JamForm(props) {
           <Form.Group
             as={Col}
             md="3"
-            controlId="validationFormik105"
+            controlId="validationFormik104"
             className="position-relative"
           >
-            <Form.Select aria-label="Default select example">
-              <option>Select Fruit</option>
-
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <Form.Select
+              required
+              name="ingredients2"
+              id="ingredients2"
+              onChange={handleChange}
+              value={inputs.ingredients[1]}
+            >
+              <option value="" disabled hidden>
+                Select
+              </option>
+              {ingredients.map((ing, index) => (
+                <option value={ing} key={index}>
+                  {ing}
+                </option>
+              ))}
             </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
@@ -215,12 +299,49 @@ export default function JamForm(props) {
             controlId="validationFormik105"
             className="position-relative"
           >
-            <Form.Select aria-label="Default select example">
-              <option>Select Fruit</option>
+            <Form.Select
+              required
+              name="ingredients3"
+              id="ingredients3"
+              onChange={handleChange}
+              value={inputs.ingredients[2]}
+            >
+              <option value="" disabled hidden>
+                Select
+              </option>
+              {ingredients.map((ing, index) => (
+                <option value={ing} key={index}>
+                  {ing}
+                </option>
+              ))}
+            </Form.Select>
 
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <Form.Control.Feedback type="invalid" tooltip>
+              {/* {errors.zip} */}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationFormik105"
+            className="position-relative"
+          >
+            <Form.Select
+              required
+              name="ingredients4"
+              id="ingredients4"
+              onChange={handleChange}
+              value={inputs.ingredients[3]}
+            >
+              <option value="" disabled hidden>
+                Select
+              </option>
+              {ingredients.map((ing, index) => (
+                <option value={ing} key={index}>
+                  {ing}
+                </option>
+              ))}
             </Form.Select>
 
             <Form.Control.Feedback type="invalid" tooltip>
@@ -228,7 +349,7 @@ export default function JamForm(props) {
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        <Form.Group className="position-relative mb-3">
+        {/* <Form.Group className="position-relative mb-3">
           <Form.Label>Upload Image</Form.Label>
           <Form.Control
             type="file"
@@ -238,23 +359,26 @@ export default function JamForm(props) {
             // isInvalid={!!errors.file}
           />
           <Form.Control.Feedback type="invalid" tooltip>
-            {/* {errors.file} */}
+            {errors.file}
           </Form.Control.Feedback>
-        </Form.Group>
+        </Form.Group> */}
 
-        <Form.Group className="position-relative mb-3">
+        {/* <Form.Group className="position-relative mb-3">
           <Form.Check
             required
             name="terms"
             label="Agree to terms and conditions"
             onChange={handleChange}
-            // isInvalid={!!errors.terms}
-            // feedback={errors.terms}
+            isInvalid={!!errors.terms}
+            feedback={errors.terms}
             id="validationFormik106"
             feedbackTooltip
           />
-        </Form.Group>
-        <Button type="submit">Create Jam</Button>
+        </Form.Group> */}
+
+        <Button variant="outline-dark" type="submit">
+          {jam ? "Update" : "Create"}
+        </Button>
       </Form>
 
       <div>below this is important</div>
@@ -264,7 +388,7 @@ export default function JamForm(props) {
           type="text"
           name="name"
           id="name"
-          placeholder="Product Name"
+          placeholder="Jam Name"
           onChange={handleChange}
           value={inputs.name}
         />
