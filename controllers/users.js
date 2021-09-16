@@ -92,7 +92,8 @@ export const addToCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const item = await Jam.findById(req.body.id)
-    user.cart.push(item)
+    // if (user.cart.map(item => item.id))
+    user.cart.push({jamId: item._id, quantity: 1})
     await user.save()
     res.status(201).json(item)
   } catch (error) {

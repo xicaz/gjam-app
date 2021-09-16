@@ -134,8 +134,10 @@ const insertData = async () => {
   ];
   await Jam.insertMany(jams);
   console.log("Created jams!");
-
-  user3.cart = await Jam.find({restricted: true})
+  const user3Jams = await Jam.find({restricted: true})
+  user3.cart = user3Jams.map(jam => {
+    return {jamId: jam._id, quantity: 1}
+  })
   await user3.save()
 
   // close database connection. done.
