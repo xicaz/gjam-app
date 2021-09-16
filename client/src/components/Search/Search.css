@@ -18,3 +18,9 @@
 .search-input::placeholder {
   letter-spacing: 0.3px;
 }
+
+@media only screen and (max-width: 600px) {
+  .search-input {
+    width: 70vw;
+  }
+}
