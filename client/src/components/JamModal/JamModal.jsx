@@ -4,6 +4,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/esm/Row";
+import "./JamModal.css"
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -40,10 +41,18 @@ export default function JamModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <img width="300px" src={props.jam.imgURL} alt="{props.jam.name}" />
-            <h2 id="transition-modal-title">{props.jam.name}</h2>
-            <p id="transition-modal-description">${props.jam.price}</p>
-            <Link to={`/jams/${props.jam._id}`}> more details </Link>
+            <div className="modal-container">
+              <div className="img-container">
+                <img width="300px" src={props.jam.imgURL} alt="{props.jam.name}" />
+              </div>
+              <div className="modal-details">
+                <h2 className="modal-title" id="transition-modal-title">{props.jam.name}</h2>
+                <h3 id="transition-modal-description">${props.jam.price}</h3>
+                <p>Ingredients: {props.jam.ingredients.join(" ")}</p>
+                <p>{props.jam.description.split(" ").slice(0, 10).join(" ").replace(/[,\/#$%\^&\*;:{}=\-_`~]/g, "")}...</p>
+                <Link to={`/jams/${props.jam._id}`}> more details </Link>
+              </div>
+            </div>
           </div>
         </Fade>
       </Modal>
