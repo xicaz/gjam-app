@@ -45,14 +45,22 @@ p {
 }
 
 .detail-button {
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 @media screen and (max-width: 705px) {
-  .jam-detail {
+  .jam-detail-pg {
     display: flex;
     flex-direction: column;
     margin: 2%;
+  }
+
+  .jam-detail-pg img{
+    margin-bottom: 1rem;
+  }
+
+  .jam-detail-info p{
+    margin: 0.5rem auto;
   }
 
   .buttons {
