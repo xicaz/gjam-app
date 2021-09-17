@@ -1,6 +1,5 @@
 .sort-container {
   display: flex;
-  /* width: 83.5vw; */
   justify-content: flex-end;
   margin: 0 20px 0;
   margin-right: 14%;
@@ -23,6 +22,5 @@ select {
   .sort-container {
     width: 100%;
     justify-content: center;
-    /* margin: 0 auto; */
   }
 }
