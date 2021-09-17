@@ -8,6 +8,10 @@
   flex-grow: 1;
 }
 
+a:hover {
+  color: #00c987;
+}
+
 @media only screen and (max-width: 768px) {
   html,
   body {

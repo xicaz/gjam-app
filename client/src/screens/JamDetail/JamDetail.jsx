@@ -34,11 +34,11 @@ export default function JamDetail(props) {
 
   return (
     <Layout user={props.user}>
-      <div className="jam-detail">
+      <div className="jam-detail-pg">
         <div className="detail-image">
           <img src={jam.imgURL} alt={jam.name} />
         </div>
-        <div className="jam-info">
+        <div className="jam-detail-info">
           <h1>{jam.name}</h1>
           <h1>${jam.price}</h1>
           <p>Ingredients: {jam.ingredients.join(", ")}</p>

@@ -1,15 +1,15 @@
-.jam-detail {
+.jam-detail-pg {
   display: flex;
   flex-direction: row;
   margin: 10rem auto;
   width: 75%;
 }
 
-.jam-info {
+.jam-detail-info {
   margin-left: 3rem;
 }
 
-.jam-detail img {
+.jam-detail-pg img {
   max-width: 300px;
 }
 

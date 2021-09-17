@@ -22,7 +22,8 @@
   text-align: center;
 }
 
-.form-container.sign-in #link a {
+.form-container.sign-in #link,
+a {
   text-decoration: none;
   color: #1c0761;
 }
