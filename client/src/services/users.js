@@ -40,3 +40,43 @@ export const verifyUser = async () => {
   }
   return false;
 };
+
+export const getCart = async id => {
+  try {
+    const res = await api.get(`/users/${id}/cart`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export const addToCart = async (userId, item) => {
+  try {
+    const res = await api.post(`/users/${userId}/cart`, { id: item });
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export const removeFromCart = async (userId, item) => {
+  try {
+    const res = await api.delete(`/users/${userId}/cart/${item}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export const clearCart = async (userId) => {
+  try {
+    const res = await api.delete(`/users/${userId}/cart`)
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}

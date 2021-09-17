@@ -1,0 +1,25 @@
+.clear-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.clear-btn-container #clear-btn {
+  margin: 1rem;
+  background-color: #00c987;
+  border: none;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 0.25rem 1.5rem 0.25rem;
+}
+
+.clear-btn-container #clear-btn:hover {
+  background-color: #dc3545;
+}
+
+@media screen and (max-width: 600px) {
+  .cart-jams .jams-container {
+    align-items: center;
+  }
+}

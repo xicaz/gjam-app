@@ -1,0 +1,72 @@
+.jams-container {
+  align-items: center;
+}
+
+.jam-card.cart {
+  width: 40%;
+  align-items: center;
+}
+
+.jam-card.cart .jam-info {
+  align-items: center;
+  margin: 0 auto;
+}
+
+.jam-info .cart-name {
+  font-size: 2.3rem;
+}
+
+.jam-info .quantity {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.jam-info .quantity .counters {
+  display: flex;
+}
+
+.jam-info .quantity .fa-plus {
+  margin: 0 1rem;
+  color: #398B77;
+}
+
+.jam-info .quantity .fa-minus {
+  color: #dc3545;
+}
+
+.jam-info .cart-p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .jams-container {
+    align-items: center;
+  }
+
+  .jam-card.cart {
+    width: 100%;
+    align-items: center;
+  }
+
+  .jam-card.cart .jam-info {
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .jam-card.cart .jam-info .cart-name {
+    font-size: 1.8rem;
+  }
+
+  .jam-card.cart .jam-info .cart-p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .jam-info .quantity {
+    flex-direction: column;
+  }
+}

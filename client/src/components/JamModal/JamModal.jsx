@@ -53,7 +53,9 @@ export default function JamModal(props) {
                 <h1 className="modal-title" id="transition-modal-title">
                   {props.jam.name}
                 </h1>
-                <h4 id="transition-modal-description">${props.jam.price}</h4>
+                <h4 id="transition-modal-description">
+                  ${Number(props.jam.price).toFixed(2)}
+                </h4>
                 <p>Ingredients: {props.jam.ingredients.join(" ")}</p>
                 <p>
                   {props.jam.description

@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
+import Jam from '../models/jam.js'
 
 const SALT_ROUNDS = process.env.SALT_ROUNDS || 11
 const TOKEN_KEY = process.env.TOKEN_KEY || 'gjaminwithgjrandma'
@@ -71,5 +72,107 @@ export const verify = async (req, res) => {
   } catch (error) {
     console.log(error.message)
     res.status(401).send('Not Authorized')
+  }
+}
+
+const getJam = async id => {
+  const jam = await Jam.findById(id)
+  return jam;
+}
+
+
+
+
+// user.cart[0].populate("jamId")
+// user.populate(cart.0.path)
+
+export const getCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    // const cartUser = await User.findById(req.params.id).populate("cart.jamId")
+    // const userCartWithJams = await userCart.populate("jamId")
+    res.status(200).json(user.cart)
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message })
+  };
+}
+
+
+// async function orderItems() {
+//   const items = await getCartItems()    // async call
+//   const noOfItems = items.length
+//   const promises = []
+//   for(var i = 0; i < noOfItems; i++) {
+//     const orderPromise = sendRequest(items[i])    // async call
+//     promises.push(orderPromise)    // sync call
+//   }
+//   await Promise.all(promises)    // async call
+// }
+
+// // Although I prefer it this way 
+
+// async function orderItems() {
+//   const items = await getCartItems()    // async call
+//   const promises = items.map((item) => sendRequest(item))
+//   await Promise.all(promises)    // async call
+// }
+
+
+
+export const addToCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    const item = await Jam.findById(req.body.id)
+    const existingItemIndex = user.cart.findIndex(cartItem => {
+      return cartItem.jamId.toString() === item._id.toString()
+    })
+    if (existingItemIndex >= 0) {
+      user.cart[existingItemIndex].quantity += 1;
+    } else {
+      user.cart.push({ jamId: item._id, quantity: 1 })
+    }
+    await user.save()
+    res.status(201).json(item)
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message })
+  }
+}
+
+export const removeFromCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    const item = await Jam.findById(req.params.item)
+    const existingItemIndex = user.cart.findIndex(cartItem => {
+      return cartItem.jamId.toString() === item._id.toString()
+    })
+    if (existingItemIndex >= 0) {
+      const existingItem = user.cart[existingItemIndex]
+      if (existingItem.quantity > 1) {
+        existingItem.quantity -= 1;
+      } else {
+        user.cart.splice(existingItemIndex, 1)
+      }
+    } else {
+      throw new Error("Product does not exist in cart!")
+    }
+    await user.save()
+    res.status(200).send("Removed from cart")
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message })
+  }
+}
+
+export const clearCart = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    user.cart = []
+    user.save()
+    res.status(200).send("Cart cleared")
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message })
   }
 }

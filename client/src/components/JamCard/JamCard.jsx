@@ -37,7 +37,7 @@ export default function JamCard(props) {
 
       <div className="jam-info">
         <h3>{name}</h3>
-        <p>${price}</p>
+        <p>${Number(price).toFixed(2)}</p>
       </div>
     </div>
   );

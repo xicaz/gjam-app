@@ -33,6 +33,9 @@ export default function NavMenu(props) {
         <NavDropdown title="account" id="products-dropdown">
           {props.user ? (
             <>
+              <NavDropdown.Item href="/cart">
+                cart
+              </NavDropdown.Item>
               <NavDropdown.Item href="/signout">
                 sign out
               </NavDropdown.Item>

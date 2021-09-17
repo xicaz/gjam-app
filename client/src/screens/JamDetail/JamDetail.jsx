@@ -5,6 +5,7 @@ import { getJam, deleteJam } from "../../services/jams";
 import { useHistory } from "react-router";
 import "./JamDetail.css";
 import Button from "react-bootstrap/Button";
+import { addToCart } from "../../services/users";
 
 export default function JamDetail(props) {
   const [isLoaded, setLoaded] = useState(false);
@@ -30,6 +31,13 @@ export default function JamDetail(props) {
 
   if (!isLoaded) {
     return <h1>Loading Jam...</h1>;
+  }
+
+  const handleAdd = () => {
+    const added = addToCart(props.user.id, jam._id)
+    if (added) {
+      alert("Added to cart!");
+    }
   }
 
   return (
@@ -64,10 +72,15 @@ export default function JamDetail(props) {
                   Delete
                 </Button>
               </>
+            
             ) : null}
-            <Button variant="outline-dark" type="submit">
-              Add to Cart
-            </Button>
+            {props.user ? (
+              <>
+                <Button variant="outline-dark" type="submit" onClick={handleAdd}>
+                  Add to Cart
+                </Button>
+              </>
+            ) : null }
           </div>
         </div>
       </div>
