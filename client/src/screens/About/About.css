@@ -106,7 +106,7 @@ div.info h3.title {
   }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 900px) {
   .first-about {
     display: flex;
     flex-direction: column;
@@ -128,9 +128,19 @@ div.info h3.title {
 
   .info-about {
     width: 80%;
+    margin: 3rem;
   }
 
   .info-process {
     width: 80%;
+    margin: 3rem;
+  }
+
+  .carousel{
+    max-width: 70%;
+  }
+
+  .info{
+    width: 100%;
   }
 }
