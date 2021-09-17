@@ -2,11 +2,11 @@
 
 ## GJAM Jam
 
-##### Casey McClenathan Garrett Foster Jexica Ayran Joshua Ramnanan
+##### Casey McClenathan, Garrett Foster, Jexica Ayran, Joshua Ramnanan
 
 ## Project Description
 
-This is a jam selling website that when users log in they can view, customize and edit jams. Jams are stored in a database so that users can see products created by other users. If a user is not signed in, they will not be able to edit or customize a jam.
+This is an eCommerce jam store that lets users log in with the option to view, create, and edit jams. Jams are stored in a database so that users can see jams they created and jams created by other users. If a user is not signed in, they will not be able to edit or create a jam. A shopping cart is available to logged in users so they can add and remove jams.
 
 ## Wireframes
 
@@ -29,13 +29,15 @@ const Jam = new Schema(
     sweetness: { type: String, required: true },
     spiciness: { type: String, required: true },
     imgURL: { type: String, required: true },
+    hoverImage: { type: String, required: true },
     description: { type: String, required: true },
-    creator: {type: String, required: true},
+    creator: { type: String, required: true },
     price: { type: String, required: true },
-    ingredients: [{ type: String, required: true }]
+    ingredients: [{ type: String }],
+    restricted: { type: Boolean, required: true },
   },
   { timestamps: true }
-)
+);
 ```
 
 #### User Schema
@@ -46,8 +48,13 @@ const User = new Schema(
     name: { type: String, required: true },
     email: { type: String, required: true },
     password_digest: { type: String, required: true, select: false },
+    cart: [{
+      jamId: { type: Schema.Types.ObjectId, refs: "jams" },
+      quantity: { type: Number, required: true },
+    }]
   },
   { timestamps: true }
+)
 ```
 
 ### MVP/PostMVP
@@ -76,8 +83,6 @@ const User = new Schema(
 | Sep 14 | MVP                                                                                                   | Complete |
 | Sep 15 | Responsiveness and extra styling                                                                      | Complete |
 | Sep 16 | Polishing, Post MVP                                                                                   | Complete |
-| Sep 17 | Project Presentations                                                                                 |          |
+| Sep 17 | Project Presentations                                                                                 | Complete |
 
-## Team Expectations
-
-[Team expectations](https://docs.google.com/document/d/14oVUIscUusLaHkfb1EMABAU5zR2UN-phRX395Y1lUj8/edit?usp=sharing)
+## [Team expectations](https://docs.google.com/document/d/14oVUIscUusLaHkfb1EMABAU5zR2UN-phRX395Y1lUj8/edit?usp=sharing)
