@@ -23,5 +23,3 @@ const Search = (props) => {
 };
 
 export default Search;
-
-// onSubmit={(e) => props.onSubmit(e)}

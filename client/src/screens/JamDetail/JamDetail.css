@@ -36,16 +36,11 @@ p {
   color: white;
   text-decoration: none;
   border-radius: 20px;
-  /* padding: 7px 10px 7px; */
 }
 
 #anchor-btn a {
   text-decoration: none;
   color: white;
-}
-
-.detail-button {
-  /* padding: 20px; */
 }
 
 @media screen and (max-width: 705px) {

@@ -92,15 +92,6 @@ div.info h3.title {
 }
 
 @media only screen and (max-width: 900px) {
-  /* .first-image {
-    width: 45%;
-    height: 600px;
-  }
-  .second-image {
-    width: 45%;
-    height: 600px;
-  } */
-
   .info {
     font-size: 14px;
   }
