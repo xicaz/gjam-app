@@ -144,7 +144,19 @@ export const removeFromCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const item = await Jam.findById(req.params.item)
-    user.cart.splice(user.cart.indexOf(item._id), 1)
+    const existingItemIndex = user.cart.findIndex(cartItem => {
+      return cartItem.jamId.toString() === item._id.toString()
+    })
+    if (existingItemIndex >= 0) {
+      const existingItem = user.cart[existingItemIndex]
+      if (existingItem.quantity > 1) {
+        existingItem.quantity -= 1;
+      } else {
+        user.cart.splice(existingItemIndex, 1)
+      }
+    } else {
+      throw new Error("Product does not exist in cart!")
+    }
     await user.save()
     res.status(200).send("Removed from cart")
   } catch (error) {
