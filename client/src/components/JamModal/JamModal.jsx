@@ -5,6 +5,7 @@ import Fade from "@material-ui/core/Fade";
 import { Link } from "react-router-dom";
 import "./JamModal.css";
 import Button from "react-bootstrap/Button";
+import { addToCart } from "../../services/users";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -21,9 +22,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function JamModal(props) {
   const classes = useStyles();
   const { open, handleClose } = props;
+
+  const handleAdd = () => {
+    const added = addToCart(props.user.id, props.jam._id)
+    if (added) {
+      alert("Added to cart!");
+      handleClose();
+    }
+  }
 
   return (
     <div>
@@ -65,22 +75,21 @@ export default function JamModal(props) {
                     .replace(/,\s*$/, "")}
                   ...
                 </p>
-                <div>
+                <div className="modal-btns">
                   <Link to={`/jams/${props.jam._id}`}>
                     <Button
                       id="detail-btn"
+                      className="modal-btn"
                       variant="outline-dark"
                       type="submit"
                     >
                       More Details
                     </Button>
                   </Link>
+                  {props.user ? <Button variant="outline-dark" className="modal-btn" onClick={handleAdd}>
+                    Add to Cart
+                  </Button> : null}
                 </div>
-                <>
-                  <Button variant="outline-dark" type="submit">
-                    Add to Cart place-
-                  </Button>
-                </>
               </div>
             </div>
           </div>
