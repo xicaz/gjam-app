@@ -1,4 +1,19 @@
-.search-form {
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  margin: 10% auto;
+  padding-bottom: 5%;
+}
+
+.search-input {
+  /* font-size: 16px; */
+  /* border-radius: 15px; */
+  /* margin: 40px; */
+}
+
+/* .search-form {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -7,7 +22,7 @@
 }
 
 .search-input {
-  width: 40vw;
+  width: 20vw;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border-radius: 15px;
@@ -16,7 +31,7 @@
 
 .search-input::placeholder {
   letter-spacing: 0.3px;
-}
+} */
 
 @media only screen and (max-width: 600px) {
   .search-input {

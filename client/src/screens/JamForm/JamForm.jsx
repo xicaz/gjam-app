@@ -241,7 +241,6 @@ export default function JamForm(props) {
           </Form.Group>
           <Form.Group as={Col} md="3" className="position-relative">
             <Form.Select
-              required
               name="ingredients2"
               id="ingredients2"
               onChange={handleChange}
