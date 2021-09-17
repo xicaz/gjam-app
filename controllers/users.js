@@ -80,45 +80,15 @@ const getJam = async id => {
   return jam;
 }
 
-
-
-
-// user.cart[0].populate("jamId")
-// user.populate(cart.0.path)
-
 export const getCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    // const cartUser = await User.findById(req.params.id).populate("cart.jamId")
-    // const userCartWithJams = await userCart.populate("jamId")
     res.status(200).json(user.cart)
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message })
   };
 }
-
-
-// async function orderItems() {
-//   const items = await getCartItems()    // async call
-//   const noOfItems = items.length
-//   const promises = []
-//   for(var i = 0; i < noOfItems; i++) {
-//     const orderPromise = sendRequest(items[i])    // async call
-//     promises.push(orderPromise)    // sync call
-//   }
-//   await Promise.all(promises)    // async call
-// }
-
-// // Although I prefer it this way 
-
-// async function orderItems() {
-//   const items = await getCartItems()    // async call
-//   const promises = items.map((item) => sendRequest(item))
-//   await Promise.all(promises)    // async call
-// }
-
-
 
 export const addToCart = async (req, res) => {
   try {
