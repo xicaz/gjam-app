@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
 
-
 .jam-card {
   margin-bottom: 2rem;
   display: flex;
@@ -40,11 +39,14 @@
 @media only screen and (max-width: 800px) {
   .jam-card {
     width: 45%;
+    margin: 0 auto;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .jam-card {
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
   }
 }
