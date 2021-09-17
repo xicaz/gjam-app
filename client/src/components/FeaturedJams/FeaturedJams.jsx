@@ -22,6 +22,7 @@ export default function FeaturedJams(props) {
             imgURL={"https://i.imgur.com/m2o9NB9.png"}
             jam={jam}
             key={index}
+            user={props.user}
           />
         );
       })}

@@ -65,7 +65,7 @@ export default function Jams(props) {
       <Sort onSubmit={handleSubmit} handleSort={handleSort} />
       <div className="jams-container">
         {searchResult.map((jam, index) => {
-          return <JamCard jam={jam} key={index} />;
+          return <JamCard jam={jam} key={index} user={props.user}/>;
         })}
       </div>
     </Layout>

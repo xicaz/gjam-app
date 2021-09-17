@@ -22,6 +22,7 @@ export default function JamCard(props) {
         open={open}
         handleOpen={handleOpen}
         handleClose={handleClose}
+        user={props.user}
       />
 
       <div className="card-image">
