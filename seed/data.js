@@ -12,29 +12,33 @@ const insertData = async () => {
     name: "Garrett",
     email: "root@super.gmail.com",
     password_digest: await bcrypt.hash("!a$ecureP@ssw0Rd55!", 11),
-  });
-  await user1.save();
+    cart: []
+  })
+  await user1.save()
 
   const user2 = new User({
     name: "Jexica",
     email: "b.anca@super.gmail.com",
     password_digest: await bcrypt.hash("!$h0pp3R1", 11),
-  });
-  await user2.save();
+    cart: []
+  })
+  await user2.save()
 
   const user3 = new User({
     name: "Josh",
     email: "n.zo@super.gmail.com",
     password_digest: await bcrypt.hash("!$eller4Lif3", 11),
-  });
-  await user3.save();
+    cart: []
+  })
+  await user3.save()
 
   const user4 = new User({
     name: "Casey",
     email: "kumi@super.gmail.com",
     password_digest: await bcrypt.hash("L0v32!p4int", 11),
-  });
-  await user4.save();
+    cart: []
+  })
+  await user4.save()
 
   const jams = [
     {
@@ -130,6 +134,11 @@ const insertData = async () => {
   ];
   await Jam.insertMany(jams);
   console.log("Created jams!");
+  const user3Jams = await Jam.find({restricted: true})
+  user3.cart = user3Jams.map(jam => {
+    return {jamId: jam._id, quantity: 1}
+  })
+  await user3.save()
 
   // close database connection. done.
   db.close();
