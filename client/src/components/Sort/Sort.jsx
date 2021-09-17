@@ -1,9 +1,9 @@
-import "./Sort.css"
+import "./Sort.css";
 
 const Sort = (props) => {
   const handleSort = (e) => {
-    props.handleSort(e.target.value)
-  }
+    props.handleSort(e.target.value);
+  };
 
   return (
     <form className="sort-container" onSubmit={props.handleSubmit}>
@@ -17,7 +17,7 @@ const Sort = (props) => {
         <option value="price-descending">&nbsp; high-low &nbsp;</option>
       </select>
     </form>
-  )
-}
+  );
+};
 
-export default Sort
+export default Sort;

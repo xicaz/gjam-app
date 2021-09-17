@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
 
-
 .jam-card {
   margin-bottom: 2rem;
   display: flex;
@@ -24,27 +23,36 @@
 .jam-info {
   width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-self: flex-end;
   /* margin-top: -15px; need better way to move h3 and p tag up. */
 }
 
 .jam-info h3 {
-  margin: 6px 0px;
+  margin: 10px 0 0;
+  font-size: 15px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
 }
 
 .jam-info p {
-  margin-top: 2px;
+  margin: 10px 20px 0;
+  justify-content: end;
+  font-family: "Work Sans", sans-serif;
+  font-size: 13px;
 }
 
 @media only screen and (max-width: 800px) {
   .jam-card {
     width: 45%;
+    margin: 0 auto;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .jam-card {
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
   }
 }

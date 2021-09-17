@@ -1,14 +1,31 @@
-.modal-container{
+.modal-container {
   display: flex;
 }
 
-.modal-details{
+.modal-details {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin-left: 2rem;
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
 }
 
-.modal-title{
-  font-weight: bold;
+.modal-title {
+  font-size: 30px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
+}
+
+.btn#detail-btn {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 575px) {
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    overflow: scroll;
+  }
 }

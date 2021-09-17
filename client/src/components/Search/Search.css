@@ -1,25 +1,19 @@
-.search-form {
-  padding-top: 10px;
+.input-group,
+.mb-3 .search-bar {
+  position: relative;
+
+  padding: 5% 0 1%;
+  width: 35%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  margin-left: 14%;
 }
 
-.search-input {
-  width: 40vw;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border-radius: 15px;
-  margin: 40px;
-}
-
-.search-input::placeholder {
-  letter-spacing: 0.3px;
-}
-
-@media only screen and (max-width: 600px) {
-  .search-input {
-    width: 70vw;
+@media only screen and (max-width: 575px) {
+  .input-group {
+    width: 50%;
+    min-width: 185px;
+    margin: 0 auto;
+    justify-content: center;
   }
 }
