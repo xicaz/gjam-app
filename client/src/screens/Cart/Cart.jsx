@@ -3,12 +3,16 @@ import Layout from "../../components/Layout/Layout";
 import { getCart } from "../../services/users";
 import CartJam from "../../components/CartJam/CartJam";
 import Button from "react-bootstrap/Button";
-import { removeFromCart } from "../../services/users";
+import "./Cart.css"
+import { clearCart } from "../../services/users";
+import { useHistory } from "react-router";
 
 export default function Cart(props) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [cart, setCart] = useState([])
   const [toggleFetch, setToggleFetch] = useState(false)
+
+  const history = useHistory()
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -29,24 +33,29 @@ export default function Cart(props) {
     )
   }
 
-  const handleDelete = async e => {
-    const deleted = await removeFromCart(props.user.id, e.target.value);
-    if (deleted) {
-      setToggleFetch(!toggleFetch)
+  const handleClear = async () => {
+    const clear = await clearCart(props.user.id);
+    if (clear) {
+      alert("cart cleared")
+      history.push("/")
     }
   }
 
   return(
     <Layout user={props.user}>
+      <div className="clear-btn-container">
+        <Button variant="outline-danger" id="clear-btn" className="clear-cart" onClick={handleClear}>
+          Clear Cart
+        </Button>
+      </div>
       <div className="cart-jams">
         {cart.length === 0 ? <h1>Cart is empty!</h1> : null}
-        {cart.map((cartItem, index) => <>
-          <CartJam jam={cartItem.jamId} key={index}/>
-          <Button variant="outline-danger" value={cartItem.jamId} type="submit" onClick={handleDelete} key={`BUTTON${index}`}>
-            Remove
-          </Button>
-        </>
-        )}
+        <div className="jams-container">
+          {cart.map((cartItem, index) => <>
+            <CartJam jam={cartItem.jamId} quantity={cartItem.quantity} key={index} user={props.user} setToggleFetch={setToggleFetch}/>
+          </>
+          )}
+        </div>
       </div>
     </Layout>
   )
