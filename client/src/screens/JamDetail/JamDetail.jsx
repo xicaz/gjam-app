@@ -23,7 +23,9 @@ export default function JamDetail(props) {
 
   const deleteAndPush = () => {
     deleteJam(jam._id);
-    history.push("/jams");
+    setTimeout(() => {
+      history.push("/jams");
+    }, 500);
   };
 
   if (!isLoaded) {
