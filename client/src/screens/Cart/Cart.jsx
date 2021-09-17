@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { getCart } from "../../services/users";
-import JamCard from "../../components/JamCard/JamCard";
+import CartJam from "../../components/CartJam/CartJam";
 import Button from "react-bootstrap/Button";
 import { removeFromCart } from "../../services/users";
 
@@ -40,9 +40,9 @@ export default function Cart(props) {
     <Layout user={props.user}>
       <div className="cart-jams">
         {cart.length === 0 ? <h1>Cart is empty!</h1> : null}
-        {cart.map((jam, index) => <>
-          <JamCard jam={jam} key={index}/>
-          <Button variant="outline-danger" value={jam._id} type="submit" onClick={handleDelete}>
+        {cart.map((cartItem, index) => <>
+          <CartJam jam={cartItem.jamId} key={index}/>
+          <Button variant="outline-danger" value={cartItem.jamId} type="submit" onClick={handleDelete} key={`BUTTON${index}`}>
             Remove
           </Button>
         </>
