@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default function JamCard(props) {
-  const [fullJam, setFullJam] = useState()
+  const [fullJam, setFullJam] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -15,14 +15,22 @@ export default function JamCard(props) {
     const fetchJam = async () => {
       console.log("props.jam", props.jam)
       //NOTE: props.jam is actually the id of the jam
-      const jam = await getJam(props.jam.toString())
-      setFullJam(jam)
-      setIsLoaded(true)
+      let jam;
+      try {
+        jam = await getJam(props.jam.toString())
+      } catch (error) {
+        for (let i = 0; i < props.quantity; i++) {
+          removeFromCart(props.user.id)
+        }
+      } finally {
+        setFullJam(jam)
+        setIsLoaded(true)
+      }
     }
     fetchJam()
-  }, [])
+  }, [props.jam, props.quantity, props.user])
 
-  if(!isLoaded) {
+  if(!isLoaded || !fullJam) {
     return null
   }
 
