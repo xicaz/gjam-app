@@ -1,10 +1,10 @@
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
-import User from '../models/user.js'
-import Jam from '../models/jam.js'
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+import User from "../models/user.js"
+import Jam from "../models/jam.js"
 
 const SALT_ROUNDS = process.env.SALT_ROUNDS || 11
-const TOKEN_KEY = process.env.TOKEN_KEY || 'gjaminwithgjrandma'
+const TOKEN_KEY = process.env.TOKEN_KEY || "gjaminwithgjrandma"
 
 const today = new Date()
 const exp = new Date(today)
@@ -41,7 +41,7 @@ export const signIn = async (req, res) => {
   try {
     const { email, password } = req.body
     const user = await User.findOne({ email: email }).select(
-      'name email password_digest'
+      "name email password_digest"
     )
     if (await bcrypt.compare(password, user.password_digest)) {
       const payload = {
@@ -54,7 +54,7 @@ export const signIn = async (req, res) => {
       const token = jwt.sign(payload, TOKEN_KEY)
       res.status(201).json({ token })
     } else {
-      res.status(401).send('Invalid Credentials')
+      res.status(401).send("Invalid Credentials")
     }
   } catch (error) {
     console.log(error.message)
@@ -64,14 +64,24 @@ export const signIn = async (req, res) => {
 
 export const verify = async (req, res) => {
   try {
-    const token = req.headers.authorization.split(' ')[1]
+    const token = req.headers.authorization.split(" ")[1]
     const payload = jwt.verify(token, TOKEN_KEY)
     if (payload) {
       res.json(payload)
     }
   } catch (error) {
     console.log(error.message)
-    res.status(401).send('Not Authorized')
+    res.status(401).send("Not Authorized")
+  }
+}
+
+export const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    res.status(200).json(user)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
 }
 
@@ -80,27 +90,27 @@ export const getCart = async (req, res) => {
     const user = await User.findById(req.params.id)
     res.status(200).json(user.cart)
   } catch (error) {
-    console.error(error);
+    console.error(error)
     res.status(500).json({ error: error.message })
-  };
+  }
 }
 
 export const addToCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const item = await Jam.findById(req.body.id)
-    const existingItemIndex = user.cart.findIndex(cartItem => {
+    const existingItemIndex = user.cart.findIndex((cartItem) => {
       return cartItem.jamId.toString() === item._id.toString()
     })
     if (existingItemIndex >= 0) {
-      user.cart[existingItemIndex].quantity += 1;
+      user.cart[existingItemIndex].quantity += 1
     } else {
       user.cart.push({ jamId: item._id, quantity: 1 })
     }
     await user.save()
     res.status(201).json(item)
   } catch (error) {
-    console.error(error);
+    console.error(error)
     res.status(500).json({ error: error.message })
   }
 }
@@ -109,8 +119,8 @@ export const addToCart = async (req, res) => {
 export const removeFromCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    const all = req.body.all;
-    const existingItemIndex = user.cart.findIndex(cartItem => {
+    const all = req.body.all
+    const existingItemIndex = user.cart.findIndex((cartItem) => {
       console.log(cartItem.jamId.toString(), req.params.item)
       return cartItem.jamId.toString() === req.params.item
     })
@@ -119,7 +129,7 @@ export const removeFromCart = async (req, res) => {
       if (existingItem.quantity === 1 || all) {
         user.cart.splice(existingItemIndex, 1)
       } else {
-        existingItem.quantity -= 1;
+        existingItem.quantity -= 1
       }
     } else {
       throw new Error("Product does not exist in cart!")
@@ -127,7 +137,7 @@ export const removeFromCart = async (req, res) => {
     await user.save()
     res.status(200).send("Removed from cart")
   } catch (error) {
-    console.error(error);
+    console.error(error)
     res.status(500).json({ error: error.message })
   }
 }
@@ -139,7 +149,7 @@ export const clearCart = async (req, res) => {
     await user.save()
     res.status(200).send("Cart cleared")
   } catch (error) {
-    console.error(error);
+    console.error(error)
     res.status(500).json({ error: error.message })
   }
 }

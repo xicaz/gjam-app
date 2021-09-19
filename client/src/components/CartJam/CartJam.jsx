@@ -2,9 +2,13 @@ import "./CartJam.css"
 import JamModal from "../JamModal/JamModal"
 import { useEffect, useState } from "react"
 import { getJam } from "../../services/jams"
-import { removeFromCart, addToCart, removeAllFromCart } from "../../services/users"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import {
+  removeFromCart,
+  addToCart,
+  removeAllFromCart,
+} from "../../services/users"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
 
 export default function JamCard(props) {
   const [fullJam, setFullJam] = useState(null)
@@ -13,12 +17,11 @@ export default function JamCard(props) {
 
   useEffect(() => {
     const fetchJam = async () => {
-      console.log("props.jam", props.jam)
       //NOTE: props.jam is actually the id of the jam
       const jam = await getJam(props.jam.toString())
       if (!jam) {
         removeAllFromCart(props.user.id, props.jam.toString())
-        props.setToggleFetch(prevState => !prevState)
+        props.setToggleFetch((prevState) => !prevState)
       }
       setFullJam(jam)
       setIsLoaded(true)
@@ -26,7 +29,7 @@ export default function JamCard(props) {
     fetchJam()
   }, [props.jam, props.quantity, props.user])
 
-  if(!isLoaded || !fullJam) {
+  if (!isLoaded || !fullJam) {
     return null
   }
 
@@ -39,13 +42,13 @@ export default function JamCard(props) {
   }
 
   const handleRemove = async () => {
-    await removeFromCart(props.user.id, fullJam._id);
-    props.setToggleFetch(prevState => !prevState)
+    await removeFromCart(props.user.id, fullJam._id)
+    props.setToggleFetch((prevState) => !prevState)
   }
 
   const handleAdd = async () => {
     await addToCart(props.user.id, fullJam._id)
-    props.setToggleFetch(prevState => !prevState)
+    props.setToggleFetch((prevState) => !prevState)
   }
 
   return (
@@ -70,11 +73,22 @@ export default function JamCard(props) {
           <div className="quantity">
             <p className="cart-p">Quantity: {props.quantity}</p>
             <div className="counters">
-              <FontAwesomeIcon icon={faPlus} onClick={handleAdd} className="fa-2x"/>
-              <FontAwesomeIcon icon={faMinus} onClick={handleRemove} className="fa-2x"/>
+              <FontAwesomeIcon
+                icon={faPlus}
+                onClick={handleAdd}
+                className="fa-2x"
+              />
+              <FontAwesomeIcon
+                icon={faMinus}
+                onClick={handleRemove}
+                className="fa-2x"
+              />
             </div>
           </div>
-          <p className="cart-p">Total Price: ${(Number(props.quantity) * Number(fullJam.price)).toFixed(2)}</p>
+          <p className="cart-p">
+            Total Price: $
+            {(Number(props.quantity) * Number(fullJam.price)).toFixed(2)}
+          </p>
         </div>
       </div>
     </>
