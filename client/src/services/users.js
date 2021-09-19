@@ -73,7 +73,17 @@ export const removeFromCart = async (userId, item) => {
 
 export const clearCart = async (userId) => {
   try {
-    const res = await api.delete(`/users/${userId}/cart`)
+    const res = await api.delete(`/users/${userId}/cart`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export const removeAllFromCart = async (userId, item) => {
+  try {
+    const res = await api.delete(`/users/${userId}/cart/${item}`, { all: true });
     return res.data;
   } catch (error) {
     console.error(error);

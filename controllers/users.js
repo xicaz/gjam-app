@@ -75,11 +75,6 @@ export const verify = async (req, res) => {
   }
 }
 
-const getJam = async id => {
-  const jam = await Jam.findById(id)
-  return jam;
-}
-
 export const getCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
@@ -110,19 +105,21 @@ export const addToCart = async (req, res) => {
   }
 }
 
+//url is /users/:id/cart/:item
 export const removeFromCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    const item = await Jam.findById(req.params.item)
+    const all = req.body.all;
     const existingItemIndex = user.cart.findIndex(cartItem => {
-      return cartItem.jamId.toString() === item._id.toString()
+      console.log(cartItem.jamId.toString(), req.params.item)
+      return cartItem.jamId.toString() === req.params.item
     })
     if (existingItemIndex >= 0) {
       const existingItem = user.cart[existingItemIndex]
-      if (existingItem.quantity > 1) {
-        existingItem.quantity -= 1;
-      } else {
+      if (existingItem.quantity === 1 || all) {
         user.cart.splice(existingItemIndex, 1)
+      } else {
+        existingItem.quantity -= 1;
       }
     } else {
       throw new Error("Product does not exist in cart!")
@@ -139,7 +136,7 @@ export const clearCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     user.cart = []
-    user.save()
+    await user.save()
     res.status(200).send("Cart cleared")
   } catch (error) {
     console.error(error);

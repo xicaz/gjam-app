@@ -2,7 +2,7 @@ import "./CartJam.css"
 import JamModal from "../JamModal/JamModal"
 import { useEffect, useState } from "react"
 import { getJam } from "../../services/jams"
-import { removeFromCart, addToCart } from "../../services/users"
+import { removeFromCart, addToCart, removeAllFromCart } from "../../services/users"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,14 +18,15 @@ export default function JamCard(props) {
       let jam;
       try {
         jam = await getJam(props.jam.toString())
-      } catch (error) {
-        for (let i = 0; i < props.quantity; i++) {
-          removeFromCart(props.user.id)
-        }
-      } finally {
-        setFullJam(jam)
-        setIsLoaded(true)
+      } catch {
+        return
       }
+      if (!jam) {
+        removeAllFromCart(props.user.id, props.jam.toString())
+        props.setToggleFetch(prevState => !prevState)
+      }
+      setFullJam(jam)
+      setIsLoaded(true)
     }
     fetchJam()
   }, [props.jam, props.quantity, props.user])
