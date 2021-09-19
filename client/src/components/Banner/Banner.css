@@ -8,3 +8,48 @@
   height: auto;
   object-fit: cover;
 }
+
+.marquee {
+  margin-top: -3vh;
+  font-family: "Work Sans";
+  top: 5.5vh;
+  color: white;
+  width: 4000vw;
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  border-bottom: 0.05rem solid;
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 60s linear infinite;
+  animation-play-state: paused;
+}
+
+.marquee span {
+  font-size: 3vh;
+  font-weight: 700;
+  padding: 0 1vw;
+  letter-spacing: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.marquee .marquee__inner {
+  animation-play-state: running;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
