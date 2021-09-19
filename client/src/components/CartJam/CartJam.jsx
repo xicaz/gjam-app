@@ -2,12 +2,12 @@ import "./CartJam.css"
 import JamModal from "../JamModal/JamModal"
 import { useEffect, useState } from "react"
 import { getJam } from "../../services/jams"
-import { removeFromCart, addToCart } from "../../services/users"
+import { removeFromCart, addToCart, removeAllFromCart } from "../../services/users"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default function JamCard(props) {
-  const [fullJam, setFullJam] = useState()
+  const [fullJam, setFullJam] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -16,13 +16,17 @@ export default function JamCard(props) {
       console.log("props.jam", props.jam)
       //NOTE: props.jam is actually the id of the jam
       const jam = await getJam(props.jam.toString())
+      if (!jam) {
+        removeAllFromCart(props.user.id, props.jam.toString())
+        props.setToggleFetch(prevState => !prevState)
+      }
       setFullJam(jam)
       setIsLoaded(true)
     }
     fetchJam()
-  }, [])
+  }, [props.jam, props.quantity, props.user])
 
-  if(!isLoaded) {
+  if(!isLoaded || !fullJam) {
     return null
   }
 

@@ -75,50 +75,15 @@ export const verify = async (req, res) => {
   }
 }
 
-const getJam = async id => {
-  const jam = await Jam.findById(id)
-  return jam;
-}
-
-
-
-
-// user.cart[0].populate("jamId")
-// user.populate(cart.0.path)
-
 export const getCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    // const cartUser = await User.findById(req.params.id).populate("cart.jamId")
-    // const userCartWithJams = await userCart.populate("jamId")
     res.status(200).json(user.cart)
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message })
   };
 }
-
-
-// async function orderItems() {
-//   const items = await getCartItems()    // async call
-//   const noOfItems = items.length
-//   const promises = []
-//   for(var i = 0; i < noOfItems; i++) {
-//     const orderPromise = sendRequest(items[i])    // async call
-//     promises.push(orderPromise)    // sync call
-//   }
-//   await Promise.all(promises)    // async call
-// }
-
-// // Although I prefer it this way 
-
-// async function orderItems() {
-//   const items = await getCartItems()    // async call
-//   const promises = items.map((item) => sendRequest(item))
-//   await Promise.all(promises)    // async call
-// }
-
-
 
 export const addToCart = async (req, res) => {
   try {
@@ -140,19 +105,21 @@ export const addToCart = async (req, res) => {
   }
 }
 
+//url is /users/:id/cart/:item
 export const removeFromCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    const item = await Jam.findById(req.params.item)
+    const all = req.body.all;
     const existingItemIndex = user.cart.findIndex(cartItem => {
-      return cartItem.jamId.toString() === item._id.toString()
+      console.log(cartItem.jamId.toString(), req.params.item)
+      return cartItem.jamId.toString() === req.params.item
     })
     if (existingItemIndex >= 0) {
       const existingItem = user.cart[existingItemIndex]
-      if (existingItem.quantity > 1) {
-        existingItem.quantity -= 1;
-      } else {
+      if (existingItem.quantity === 1 || all) {
         user.cart.splice(existingItemIndex, 1)
+      } else {
+        existingItem.quantity -= 1;
       }
     } else {
       throw new Error("Product does not exist in cart!")
@@ -169,7 +136,7 @@ export const clearCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     user.cart = []
-    user.save()
+    await user.save()
     res.status(200).send("Cart cleared")
   } catch (error) {
     console.error(error);

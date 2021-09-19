@@ -119,6 +119,9 @@ export default function JamForm(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    while(inputs.ingredients.indexOf("")> 0) {
+      inputs.ingredients.splice(inputs.ingredients.indexOf(""), 1)
+    }
     const newJam = {
       ...inputs,
       restricted: false,
