@@ -15,12 +15,7 @@ export default function JamCard(props) {
     const fetchJam = async () => {
       console.log("props.jam", props.jam)
       //NOTE: props.jam is actually the id of the jam
-      let jam;
-      try {
-        jam = await getJam(props.jam.toString())
-      } catch {
-        return
-      }
+      const jam = await getJam(props.jam.toString())
       if (!jam) {
         removeAllFromCart(props.user.id, props.jam.toString())
         props.setToggleFetch(prevState => !prevState)
