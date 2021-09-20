@@ -44,7 +44,7 @@ export default function Banner() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://i.imgur.com/gIM8c6v.png"
+            src="https://i.imgur.com/wMP7cD6.png"
             alt="First slide"
           />
         </Carousel.Item>
