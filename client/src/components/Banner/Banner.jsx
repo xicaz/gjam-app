@@ -1,4 +1,5 @@
 import "./Banner.css";
+import Carousel from "react-bootstrap/Carousel";
 
 export default function Banner() {
   return (
@@ -39,12 +40,35 @@ export default function Banner() {
           </span>
         </div>
       </div>
-      <div className="hr"></div>
-      <img
+      <Carousel variant="dark" className="img-crop">
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://i.imgur.com/gIM8c6v.png"
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://i.imgur.com/IOlMZuo.jpg"
+            alt="Second slide"
+          />
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://i.imgur.com/glGnqRg.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+      </Carousel>
+      {/* <img
         className="img-crop"
         src="https://i.imgur.com/gIQ40c6.png"
         alt="banner"
-      />
+      /> */}
     </div>
   );
 }

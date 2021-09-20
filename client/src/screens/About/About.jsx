@@ -39,7 +39,7 @@ export default function About(props) {
             </div>
           </div>
 
-          <Carousel fade>
+          <Carousel fade className="about-carousel">
             <Carousel.Item className="carousel-container first-image">
               <img
                 className="d-block w-100"

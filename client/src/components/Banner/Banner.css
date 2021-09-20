@@ -1,13 +1,7 @@
-.featured-jams-banner img {
+/* .featured-jams-banner img {
   margin-top: -3.5%;
   margin-left: -6%;
-}
-
-.img-crop {
-  width: 110%;
-  height: auto;
-  object-fit: cover;
-}
+} */
 
 .marquee {
   margin-top: -3vh;
@@ -21,6 +15,7 @@
   --move-initial: calc(-25% + var(--offset));
   --move-final: calc(-50% + var(--offset));
   border-bottom: 0.05rem solid;
+  z-index: 50;
 }
 
 .marquee__inner {
@@ -37,7 +32,7 @@
   font-weight: 700;
   padding: 0 1vw;
   letter-spacing: 0.25rem;
-  margin-bottom: 0.75rem;
+  margin-top: -0.75rem;
 }
 
 .marquee .marquee__inner {
@@ -52,4 +47,15 @@
   100% {
     transform: translate3d(var(--move-final), 0, 0);
   }
+}
+
+.carousel-item {
+  width: 110%;
+  height: auto;
+  object-fit: cover;
+  background-color: black;
+}
+.carousel {
+  position: relative;
+  max-width: 1155px;
 }
