@@ -53,7 +53,7 @@ function App() {
         <About user={user} />
       </Route>
       <Route path="/cart">
-        <Cart user={user} />
+        {user ? <Cart user={user} /> : null}
       </Route>
     </Switch>
   );
