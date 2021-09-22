@@ -11,27 +11,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
 
 export default function JamCard(props) {
-  const [fullJam, setFullJam] = useState(null)
-  const [isLoaded, setIsLoaded] = useState(false)
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    const fetchJam = async () => {
-      //NOTE: props.jam is actually the id of the jam
-      const jam = await getJam(props.jam.toString())
-      if (!jam) {
-        removeAllFromCart(props.user.id, props.jam.toString())
-        props.setToggleFetch((prevState) => !prevState)
-      }
-      setFullJam(jam)
-      setIsLoaded(true)
-    }
-    fetchJam()
-  }, [props.jam, props.quantity, props.user])
-
-  if (!isLoaded || !fullJam) {
-    return null
-  }
+  const { jam, quantity } = props;
 
   const handleOpen = () => {
     setOpen(true)
@@ -42,12 +24,12 @@ export default function JamCard(props) {
   }
 
   const handleRemove = async () => {
-    await removeFromCart(props.user.id, fullJam._id)
+    await removeFromCart(props.user.id, jam._id)
     props.setToggleFetch((prevState) => !prevState)
   }
 
   const handleAdd = async () => {
-    await addToCart(props.user.id, fullJam._id)
+    await addToCart(props.user.id, jam._id)
     props.setToggleFetch((prevState) => !prevState)
   }
 
@@ -55,7 +37,7 @@ export default function JamCard(props) {
     <>
       <div className="jam-card cart">
         <JamModal
-          jam={fullJam}
+          jam={jam}
           open={open}
           handleOpen={handleOpen}
           handleClose={handleClose}
@@ -64,14 +46,14 @@ export default function JamCard(props) {
           <img
             onClick={handleOpen}
             className="jam-card-image"
-            src={fullJam.imgURL}
-            alt={fullJam.name}
+            src={jam.imgURL}
+            alt={jam.name}
           />
         </div>
         <div className="jam-info">
-          <h3 className="cart-name">{fullJam.name}</h3>
+          <h3 className="cart-name">{jam.name}</h3>
           <div className="quantity">
-            <p className="cart-p">Quantity: {props.quantity}</p>
+            <p className="cart-p">Quantity: {quantity}</p>
             <div className="counters">
               <FontAwesomeIcon
                 icon={faPlus}
@@ -87,7 +69,7 @@ export default function JamCard(props) {
           </div>
           <p className="cart-p">
             Total Price: $
-            {(Number(props.quantity) * Number(fullJam.price)).toFixed(2)}
+            {(Number(props.quantity) * Number(jam.price)).toFixed(2)}
           </p>
         </div>
       </div>

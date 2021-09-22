@@ -88,7 +88,22 @@ export const getUser = async (req, res) => {
 export const getCart = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    res.status(200).json(user.cart)
+    const cart = user.cart;
+    let fullCart = [];
+    for (let i = 0; i < cart.length; i++) {
+      const cartJam = cart[i]
+      try {
+        const jam = await Jam.findById(cartJam.jamId)
+        fullCart.push({jam, quantity: cartJam.quantity})
+      } catch (error) {
+        cart.splice(i, 1)
+        //subtract 1 so that when i increments, we're not skipping the next jam
+        i--;
+      } finally {
+        continue;
+      }
+    }
+    res.status(200).json(fullCart)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
