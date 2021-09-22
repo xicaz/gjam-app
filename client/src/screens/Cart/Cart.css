@@ -1,10 +1,18 @@
-.clear-btn-container {
+.top-right {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 1rem;
+}
+.top-right p {
   margin: 1rem;
 }
 
-.clear-btn-container #clear-btn {
+.top-right p span {
+  font-weight: 700;
+}
+
+.top-right #clear-btn {
   margin: 1rem;
   background-color: #00c987;
   border: none;

@@ -43,17 +43,15 @@ export default function Cart(props) {
       {cart.length === 0 ? (
         <h1>Cart is empty!</h1>
       ) : 
-        <>
-          <p>Subtotal: ${(cart.reduce((prev, current) => {
+        <div className="top-right">
+          <p><span>Subtotal:</span> ${(cart.reduce((prev, current) => {
             const currentPrice = Number(current.jam.price) * Number(current.quantity)
             return prev + currentPrice;
           }, 0)).toFixed(2)}</p>
-          <div className="clear-btn-container">
-            <Button variant="outline-danger" id="clear-btn" className="clear-cart" onClick={handleClear}>
-              Clear Cart
-            </Button>
-          </div>
-        </>
+          <Button variant="outline-danger" id="clear-btn" className="clear-cart" onClick={handleClear}>
+            Clear Cart
+          </Button>
+        </div>
       }
       <div className="cart-jams">
         <div className="jams-container">
