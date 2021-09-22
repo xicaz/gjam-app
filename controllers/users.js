@@ -97,6 +97,7 @@ export const getCart = async (req, res) => {
         fullCart.push({jam, quantity: cartJam.quantity})
       } catch (error) {
         cart.splice(i, 1)
+        await user.save()
         //subtract 1 so that when i increments, we're not skipping the next jam
         i--;
       } finally {
