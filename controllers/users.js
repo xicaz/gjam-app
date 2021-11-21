@@ -92,16 +92,15 @@ export const getCart = async (req, res) => {
     let fullCart = [];
     for (let i = 0; i < cart.length; i++) {
       const cartJam = cart[i]
-      try {
-        const jam = await Jam.findById(cartJam.jamId)
+      const jam = await Jam.findById(cartJam.jamId)
+      if (jam) {
         fullCart.push({jam, quantity: cartJam.quantity})
-      } catch (error) {
+      }
+      else {
         cart.splice(i, 1)
         await user.save()
         //subtract 1 so that when i increments, we're not skipping the next jam
         i--;
-      } finally {
-        continue;
       }
     }
     res.status(200).json(fullCart)
