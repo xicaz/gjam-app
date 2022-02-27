@@ -1,6 +1,6 @@
 import db from "../db/connection.js";
 import Jam from "../models/jam.js";
-import faker from "faker";
+// import faker from "faker";
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 
@@ -12,33 +12,33 @@ const insertData = async () => {
     name: "Garrett",
     email: "root@super.gmail.com",
     password_digest: await bcrypt.hash("!a$ecureP@ssw0Rd55!", 11),
-    cart: []
-  })
-  await user1.save()
+    cart: [],
+  });
+  await user1.save();
 
   const user2 = new User({
     name: "Jexica",
     email: "b.anca@super.gmail.com",
     password_digest: await bcrypt.hash("!$h0pp3R1", 11),
-    cart: []
-  })
-  await user2.save()
+    cart: [],
+  });
+  await user2.save();
 
   const user3 = new User({
     name: "Josh",
     email: "n.zo@super.gmail.com",
     password_digest: await bcrypt.hash("!$eller4Lif3", 11),
-    cart: []
-  })
-  await user3.save()
+    cart: [],
+  });
+  await user3.save();
 
   const user4 = new User({
     name: "Casey",
     email: "kumi@super.gmail.com",
     password_digest: await bcrypt.hash("L0v32!p4int", 11),
-    cart: []
-  })
-  await user4.save()
+    cart: [],
+  });
+  await user4.save();
 
   const jams = [
     {
@@ -120,25 +120,26 @@ const insertData = async () => {
       restricted: true,
     },
     {
-      name: "Wacky Jam",
-      creator: "g'randma",
-      description: "Real wacky.",
+      name: "Pickledpiper  Jam",
+      creator: "Peter",
+      description:
+        "Peter Piper picked a peck of pickled peppers, A peck of pickled peppers Peter Piper picked; If Peter Piper picked a peck of pickled peppers, Where's the peck of pickled peppers Peter Piper picked?",
       imgURL: "https://i.imgur.com/48ffGSy.png",
       hoverImage: "https://i.imgur.com/6wjmM3Y.png",
       spiciness: "0%",
       sweetness: "100%",
-      ingredients: ["Banana", "Grape", "Nectarine", "Pluot", "Plum"],
+      ingredients: ["Pickle", "Nectarine", "Pear", "Cucumber", "Mango"],
       price: "19.95",
       restricted: false,
     },
   ];
   await Jam.insertMany(jams);
   console.log("Created jams!");
-  const user3Jams = await Jam.find({restricted: true})
-  user3.cart = user3Jams.map(jam => {
-    return {jamId: jam._id, quantity: 1}
-  })
-  await user3.save()
+  const user3Jams = await Jam.find({ restricted: true });
+  user3.cart = user3Jams.map((jam) => {
+    return { jamId: jam._id, quantity: 1 };
+  });
+  await user3.save();
 
   // close database connection. done.
   db.close();
