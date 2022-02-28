@@ -2,12 +2,12 @@
 
 ## GJAM Jam
 
-##### [g'Jam deployed website](https://gjam-app.netlify.app/)
+##### [g'Jam deployed website](https://gjam.netlify.app/)
 ##### Casey McClenathan, Garrett Foster, Jexica Ayran, Joshua Ramnanan
 
 ## Project Description
 
-This is an eCommerce jam store that lets users log in with the option to view, create, and edit jams. Jams are stored in a database so that users can see jams they created and jams created by other users. If a user is not signed in, they will not be able to edit or create a jam. A shopping cart is available to logged in users so they can add and remove jams.
+This is an eCommerce jam store with full CRUD functionality: lets users signup/log in with the option to buy, create, and modify jams. Jams are saved (in an database) and updates their new jams to the collection. Registered users are also able to checkout jams to a digital shopping cart.
 
 ## Wireframes
 
