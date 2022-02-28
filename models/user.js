@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import Jam from "./jam.js"
+
 const Schema = mongoose.Schema
 
 const User = new Schema(

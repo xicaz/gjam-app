@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WAMS24/gjam-app.git"
+    "url": "git+https://github.com/xicaz/gjam-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/WAMS24/gjam-app/issues"
+    "url": "https://github.com/xicaz/gjam-app/issues"
   },
-  "homepage": "https://github.com/WAMS24/gjam-app#readme",
+  "homepage": "https://github.com/xicaz/gjam-app#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
