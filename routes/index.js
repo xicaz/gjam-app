@@ -1,6 +1,6 @@
 import { Router } from "express";
-import jamsRoutes from "/Users/jexica/Sync/general_assembly/Chickadee/unit_3/week_9/Monday/Project_3/gjam-app/routes/jams.js";
-import usersRoutes from "/Users/jexica/Sync/general_assembly/Chickadee/unit_3/week_9/Monday/Project_3/gjam-app/routes/users.js";
+import jamsRoutes from "./jams.js";
+import usersRoutes from "./users.js";
 
 const router = Router();
 
